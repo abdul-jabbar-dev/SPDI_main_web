@@ -15,21 +15,8 @@ import MechanicalEngineering from '../resource/Courses/image/MechanicalEngineeri
 import FoodTechnology from '../resource/Courses/image/FoodTechnology.jpg'
 import Footer from '../globalComponents/Footer';
 import { Helmet } from 'react-helmet';
-
-const courses = [
-    { name: 'Architecture Engineering', image: ArchitectureEngineering },
-    { name: 'Automobile Engineer', image: automobileEngineer },
-    { name: 'Civil Engineering', image: CivilEngineering },
-    { name: 'Computer Engineering', image: ComputerEngineering },
-    { name: 'Data-Telecommunication Engineering', image: DataTelecommunicationEngineering },
-    { name: 'Electrical Engineering', image: ElectricalEngineering },
-    { name: 'Electronics Engineering', image: ElectronicsEngineering },
-    { name: 'Telecommunication Engineering', image: telecommunicationEngineering },
-    { name: 'Textile Engineering', image: TextileEngineering },
-    { name: 'Mechanical Engineering', image: MechanicalEngineering },
-    { name: 'Food Technology', image: FoodTechnology },
-
-]
+import {allCourses} from '../Api/course'
+ 
 const CustomHeader = () => {
     return (<Helmet>
         <title>{('Courses').toUpperCase()}</title>
@@ -41,9 +28,9 @@ const Courses = () => {
             <CustomHeader></CustomHeader>
             <Navbar></Navbar>
             <br />
-            <div className=' container mx-auto  min-h-screen  grid grid-cols-3 gap-5 '>
+            <div className=' container mx-auto  min-h-screen  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 '>
                 {
-                    courses.map((item, i) => <CoursesItems name={item.name} img={item.image} key={i} i={i}> </CoursesItems>)
+                    allCourses.map((item, i) => <CoursesItems name={item.title} img={item.img} discreption={item.discreption} key={i} i={i}> </CoursesItems>)
                 }
             </div>
             <Footer></Footer>
