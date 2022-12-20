@@ -41,25 +41,25 @@ return (
         {/* team member */}
         <section className="bg-white ">
             <div className="container px-6 py-10 mx-auto">
-                <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">
+                <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl  ">
                     Our Executive Team</h1>
 
-                <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+                <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 d ">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia
                     error alias, adipisci rem similique, at omnis eligendi optio eos harum.
                 </p>
                 <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
                     {
                     members.filter(data => data.role !== 'president').map((user, i) => <div key={i}
-                        className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-blue-600 rounded-xl">
+                        className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-gray-300 rounded-xl">
                         <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={user.img}
                             alt="" />
 
                         <h1
-                            className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">
+                            className="mt-4 text-2xl font-semibold text-gray-700 capitalize  ">
                             {user.name}</h1>
 
-                        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
+                        <p className="mt-2 text-gray-500 capitalize  ">
                             {user.designation}</p>
 
                         <div className="flex mt-3 -mx-2">
@@ -68,7 +68,7 @@ return (
 
 
                             <a href="/"
-                                className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                                className="mx-2 text-gray-600 hover:text-gray-300  "
                                 aria-label="Github">
                                 <svg className="w-6 h-6 fill-current" viewBox="0 0 30 30" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -77,7 +77,7 @@ return (
                                 </svg>
                             </a>
                             <a href="/"
-                                className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white"
+                                className="mx-2 text-gray-600  0 hover:text-gray-300 "
                                 aria-label="Github">
                                 <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

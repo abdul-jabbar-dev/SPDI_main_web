@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import News from './Pages/News';
-import AboutUs from './Pages/AboutUs';
+import WhySpdi from './Pages/WhySpdi';
 import AdminInfo from './Pages/AdminInfo';
 import Courses from './Pages/Courses';
 import ContactWithUs from './Pages/ContactWithUs';
@@ -21,7 +21,7 @@ import StuDashHome from './Components/Students/StuDashHome';
 import LoginPage from './Pages/Authorization/LoginPage';
 import PageNotFound from './globalComponents/PageNotFound';
 import Admission from './Pages/Admission';
-import SingleCourse from './Components/Courses/SingleCourse';
+import SingleCourse from './Components/Courses/SingleCourse'; 
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
+          <Route path="/WhySpdi" element={<WhySpdi />} />
           <Route path="/contactwithus" element={<ContactWithUs />} />
           <Route path="/admininfo" element={<AdminInfo />} />
           <Route path="/admission" element={<Admission />} />

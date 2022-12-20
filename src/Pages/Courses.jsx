@@ -15,8 +15,8 @@ import MechanicalEngineering from '../resource/Courses/image/MechanicalEngineeri
 import FoodTechnology from '../resource/Courses/image/FoodTechnology.jpg'
 import Footer from '../globalComponents/Footer';
 import { Helmet } from 'react-helmet';
-import {allCourses} from '../Api/course'
- 
+import { allCourses } from '../Api/course'
+
 const CustomHeader = () => {
     return (<Helmet>
         <title>{('Courses').toUpperCase()}</title>
