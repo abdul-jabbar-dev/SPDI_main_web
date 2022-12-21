@@ -4,17 +4,13 @@ import Navbar from './../../globalComponents/Navbar';
 import Footer from './../../globalComponents/Footer';
 import { MdHelp } from 'react-icons/md';
 import { FaPaperPlane } from 'react-icons/fa';
-import { GrUpdate } from 'react-icons/gr';
-import { BsFillPeopleFill } from 'react-icons/bs';
-import { BsListCheck } from 'react-icons/bs';
+import { GrUpdate } from 'react-icons/gr';  
 import { MdAccessTimeFilled } from 'react-icons/md';
 import { ImTrophy } from 'react-icons/im';
-import { TbCertificate } from 'react-icons/tb';
-import { MdOutlineAssignment } from 'react-icons/md';
+import { TbCertificate } from 'react-icons/tb'; 
 import { AiFillSchedule } from 'react-icons/ai';
 import { BsFillCalendarCheckFill } from 'react-icons/bs';
-import { GoStar } from 'react-icons/go';
-import { GiDuration } from 'react-icons/gi';
+import { GoStar } from 'react-icons/go'; 
 import { allCourses } from '../../Api/course';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -30,7 +26,7 @@ function SingleCourse() {
         <div >
             <Navbar></Navbar>
 
-            <div className="container py-16 bg-gray-100 mx-auto">
+            <div className="container py-16 bg-gray-100 mx-auto ">
 
                 <section className="relative bg-blueGray-50">
                     <div className="flex flex-wrap items-center ">
@@ -41,17 +37,17 @@ function SingleCourse() {
                                 <blockquote className="relative p-8 mb-4">
                                     <div className='flex justify-between'>
                                         <h4 className="text-xl font-bold text-white">
-                                            {data.title}
+                                            {data?.title}
                                         </h4>
                                         <h4 className="text-xl font-semibold text-orange-500">
-                                            {data.price}<span>&#2547;</span>
+                                            {data?.price}<span>&#2547;</span>
                                         </h4>
                                     </div>
                                     <div className='flex'>
                                         {Array(data.rating).fill(1).map((st, si) => <GoStar className='text-orange-500' key={si}></GoStar>)}
                                     </div>
                                     <p className="text-md font-light mt-2 text-white">
-                                        {data.discreption}
+                                        {data?.discreption}
                                     </p>
                                 </blockquote>
                             </div>
@@ -67,8 +63,9 @@ function SingleCourse() {
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">CSS Components</h6>
                                             <p className="mb-4  text-gray-500 capitalize  ">
-                                                Notus JS comes with a huge number of Fully Coded CSS
-                                                components.
+                                                {
+                                                    data?.features?.certificate
+                                                }
                                             </p>
                                         </div>
                                     </div>
@@ -80,9 +77,10 @@ function SingleCourse() {
                                             <h6 className="text-xl mb-1 font-semibold">
                                                 JavaScript Components
                                             </h6>
-                                            <p className="mb-4  text-gray-500 capitalize ">
-                                                We also feature many dynamic components for React, NextJS,
-                                                Vue and Angular.
+                                            <p className="mb-4  text-gray-500 capitalize  ">
+                                                {
+                                                    data?.features?.courseDetails
+                                                }
                                             </p>
                                         </div>
                                     </div>
@@ -94,9 +92,10 @@ function SingleCourse() {
                                                 <FaPaperPlane className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Pages</h6>
-                                            <p className=" text-gray-800 ">
-                                                This extension also comes with 3 sample pages. They are
-                                                fully coded so you can start working instantly.
+                                            <p className=" mb-4  text-gray-500 capitalize   ">
+                                                {
+                                                    data?.features?.future
+                                                }
                                             </p>
                                         </div>
                                     </div>
@@ -107,8 +106,9 @@ function SingleCourse() {
                                             </div>
                                             <h6 className="text-xl mb-1 font-semibold">Documentation</h6>
                                             <p className="mb-4  text-gray-500 capitalize  ">
-                                                Built by developers for developers. You will love how easy
-                                                is to to work with Notus JS.
+                                                {
+                                                    data?.features?.skils
+                                                }
                                             </p>
                                         </div>
                                     </div>
@@ -118,47 +118,86 @@ function SingleCourse() {
                     </div>
                 </section>
                 <div >
-                    <div className=" w-[98%] flex justify-around mx-auto rounded-xl bg-white p-4 shadow-lg">
-                        <div className="w-full md:w-5/12 px-4  md:px-4 mx-auto ">
-                            <h3 className='my-4 font-bold text-gray-800 text-xl'>Course Schedule</h3>
-                            {(data?.schedule?.day) && <div className='flex items-center mb-2'>
-                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                                    <AiFillSchedule className="h-4 w-4  text-gray-800 " />
-                                </div>
-                                <div className='  w-full text-gray-600 '>
-                                    Date: <span>{data?.schedule?.day.join(', ')}</span>
-                                </div>
-                            </div>}
-                            {(data?.schedule?.time) && <div className='flex items-center  mb-2 text-gray-600'>
-                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                                    <MdAccessTimeFilled className="h-4 w-4 text-orange-400" />
-                                </div>
-                                <div className='  w-full '>
-                                    Time: <span>{data?.schedule?.time}</span>
-                                </div>
-                            </div>}
-                            {(data?.duration) && <div className='flex items-center text-gray-600 mb-2'>
-                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-gray-100 bg-gray-50">
-                                    <BsFillCalendarCheckFill className="h-4 w-4  text-gray-800 " />
-                                </div>
-                                <div className='w-full '>
-                                    Duration: <span className=' '>{data?.duration}</span>
-                                </div>
-                            </div>}
-                        </div>
-                        <div className="w-full md:w-7/12 px-4 ">
-                            <h3 className='my-4 font-bold text-gray-800 text-xl'>After Completion</h3>
-                            <div className='flex items-center'>
-                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-green-100 bg-green-50">
-                                    <ImTrophy className="h-4 w-4 text-green-400" />
-                                </div>
-                                <div className='w-full '>
-                                    <h4 className='text-sm text-gray-600'> Certificate of completion</h4>
+                    <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white p-4 shadow-lg">
+                        <div className='flex w-full md:w-8/12 md:mx-6'>
+                            <div className="w-full">
+                                <h3 className='my-4 font-bold text-gray-800 text-xl'>Course Schedule</h3>
+                                {(data?.schedule?.day) && <div className='flex items-center mb-2'>
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
+                                        <AiFillSchedule className="h-4 w-4  text-gray-800 " />
+                                    </div>
+                                    <div className='  w-full text-gray-600 '>
+                                        Date: <span>{data?.schedule?.day.join(', ')}</span>
+                                    </div>
+                                </div>}
+                                {(data?.schedule?.time) && <div className='flex items-center  mb-2 text-gray-600'>
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
+                                        <MdAccessTimeFilled className="h-4 w-4 text-orange-400" />
+                                    </div>
+                                    <div className='  w-full '>
+                                        Time: <span>{data?.schedule?.time}</span>
+                                    </div>
+                                </div>}
+                                {(data?.duration) && <div className='flex items-center text-gray-600 mb-2'>
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-gray-100 bg-gray-50">
+                                        <BsFillCalendarCheckFill className="h-4 w-4  text-gray-800 " />
+                                    </div>
+                                    <div className='w-full '>
+                                        Duration: <span className=' '>{data?.duration}</span>
+                                    </div>
+                                </div>}
+                            </div>
+                            <div className="w-full ">
+                                <h3 className='my-4 font-bold text-gray-800 text-xl'>After Completion</h3>
+                                <div className='flex items-center'>
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-green-100 bg-green-50">
+                                        <ImTrophy className="h-4 w-4 text-green-400" />
+                                    </div>
+                                    <div className='w-full '>
+                                        <h4 className='text-sm text-gray-600'> Certificate of completion</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="w-full md:w-4/12 mt-6 md:mt-0 ">
+                            <h2 className='font-bold text-gray-800 text-xl my-4'>
+                                Instructors
+                            </h2>
+                            <div className=' flex justify-between items-center lg:mr-8 mb-2'>
+                                <div>
+                                    <h2 className='font-bold text-purple-900 underline'>
+                                        {data.teacher}
+                                    </h2>
+                                    <p className='font-light'>
+                                        Assistant Engineer (O & M)
+                                    </p>
+                                </div>
+                                <div>
+                                    <img className='rounded-full h-16 w-16' src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
+                                </div>
+                            </div>
+                            <p className='  text-xs font-semibold my-1'>
+                                lWe Also Feature Many Dynamic Components For React, NextJS, Vue And Angular.We Also Feature Many Dynamic Components For React, NextJS, Vue And Angular.We Also Feature Many Dynamic Components For React, NextJS, Vue And Angular.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 {/* <div className="flex flex-col">
                     <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
