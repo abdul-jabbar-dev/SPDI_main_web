@@ -68,7 +68,7 @@ return (
 
 
                             <a href="/"
-                                className="mx-2 text-gray-600 hover:text-gray-300  "
+                                className="mx-2 text-gray-600 hover:text-gray-900  "
                                 aria-label="Github">
                                 <svg className="w-6 h-6 fill-current" viewBox="0 0 30 30" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -77,7 +77,7 @@ return (
                                 </svg>
                             </a>
                             <a href="/"
-                                className="mx-2 text-gray-600  0 hover:text-gray-300 "
+                                className="mx-2 text-gray-600  0 hover:text-gray-900 "
                                 aria-label="Github">
                                 <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">

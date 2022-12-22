@@ -6,8 +6,7 @@ import Bannar from '../Components/Home/Bannar';
 import Slider from '../Components/Home/Slider';
 import Footer from '../globalComponents/Footer';
 import Navbar from '../globalComponents/Navbar';
-import WelcomeBanner from '../Components/Home/WelcomeBanner';
-
+import WelcomeBanner from '../Components/Home/WelcomeBanner'; 
 const CustomHeader = () => {
     return (<Helmet>
         <title>Skills and Professional Development Industry</title>

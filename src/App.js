@@ -22,6 +22,7 @@ import LoginPage from './Pages/Authorization/LoginPage';
 import PageNotFound from './globalComponents/PageNotFound';
 import Admission from './Pages/Admission';
 import SingleCourse from './Components/Courses/SingleCourse'; 
+import Media from './Pages/Media';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route path="/contactwithus" element={<ContactWithUs />} />
           <Route path="/admininfo" element={<AdminInfo />} />
           <Route path="/admission" element={<Admission />} />
+          <Route path="/events" element={<Media />} />
           <Route path="/login" element={<LoginPage />} />
 
           <Route path="/studentdash" element={<StudentsDashboard />} >

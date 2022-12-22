@@ -23,6 +23,7 @@ const navigation = [
     { name: 'CONTACT', to: '/contactwithus', current: false },
     { name: 'NEWS', to: '/news', current: false },
     { name: 'WHY SPDI', to: '/whyspdi', current: false },
+    { name: 'EVENTS', to: '/events', current: false },
     { name: 'ADMIN INFO', to: '/admininfo', current: false },
     { name: 'LOGIN', to: '/login', current: false },
 ]

@@ -8,7 +8,7 @@ import { whatwedo as whatwedoApi } from './../../Api/whatwedo';
 
 const SingleSql = ({whatwedo}) => {
     return (
-        <li className="flex">
+        <li className="flex justify-center ">
             <div className="px-4 text-5xl font-extralight text-gray-700">{whatwedo._id+1}.</div>
             <div>
                 <div className="text-xl font-bold text-gray-800">{whatwedo.title}</div>

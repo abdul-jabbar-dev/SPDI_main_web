@@ -4,16 +4,17 @@ import Navbar from './../../globalComponents/Navbar';
 import Footer from './../../globalComponents/Footer';
 import { MdHelp } from 'react-icons/md';
 import { FaPaperPlane } from 'react-icons/fa';
-import { GrUpdate } from 'react-icons/gr';  
+import { GrUpdate } from 'react-icons/gr';
 import { MdAccessTimeFilled } from 'react-icons/md';
 import { ImTrophy } from 'react-icons/im';
-import { TbCertificate } from 'react-icons/tb'; 
+import { TbCertificate } from 'react-icons/tb';
 import { AiFillSchedule } from 'react-icons/ai';
 import { BsFillCalendarCheckFill } from 'react-icons/bs';
-import { GoStar } from 'react-icons/go'; 
+import { GoStar } from 'react-icons/go';
 import { allCourses } from '../../Api/course';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import MentorDetails from './MentorDetails';
 
 function SingleCourse() {
     const perams = useParams()
@@ -123,8 +124,8 @@ function SingleCourse() {
                             <div className="w-full">
                                 <h3 className='my-4 font-bold text-gray-800 text-xl'>Course Schedule</h3>
                                 {(data?.schedule?.day) && <div className='flex items-center mb-2'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                                        <AiFillSchedule className="h-4 w-4  text-gray-800 " />
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-cyan-100 bg-cyan-50">
+                                        <AiFillSchedule className="h-4 w-4  text-cyan-800 " />
                                     </div>
                                     <div className='  w-full text-gray-600 '>
                                         Date: <span>{data?.schedule?.day.join(', ')}</span>
@@ -139,8 +140,8 @@ function SingleCourse() {
                                     </div>
                                 </div>}
                                 {(data?.duration) && <div className='flex items-center text-gray-600 mb-2'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-gray-100 bg-gray-50">
-                                        <BsFillCalendarCheckFill className="h-4 w-4  text-gray-800 " />
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-sky-100 bg-sky-50">
+                                        <BsFillCalendarCheckFill className="h-4 w-4  text-sky-800 " />
                                     </div>
                                     <div className='w-full '>
                                         Duration: <span className=' '>{data?.duration}</span>
@@ -160,25 +161,7 @@ function SingleCourse() {
                             </div>
                         </div>
                         <div className="w-full md:w-4/12 mt-6 md:mt-0 ">
-                            <h2 className='font-bold text-gray-800 text-xl my-4'>
-                                Instructors
-                            </h2>
-                            <div className=' flex justify-between items-center lg:mr-8 mb-2'>
-                                <div>
-                                    <h2 className='font-bold text-purple-900 underline'>
-                                        {data.teacher}
-                                    </h2>
-                                    <p className='font-light'>
-                                        Assistant Engineer (O & M)
-                                    </p>
-                                </div>
-                                <div>
-                                    <img className='rounded-full h-16 w-16' src='https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'></img>
-                                </div>
-                            </div>
-                            <p className='  text-xs font-semibold my-1'>
-                                lWe Also Feature Many Dynamic Components For React, NextJS, Vue And Angular.We Also Feature Many Dynamic Components For React, NextJS, Vue And Angular.We Also Feature Many Dynamic Components For React, NextJS, Vue And Angular.
-                            </p>
+                            <MentorDetails data={data} />
                         </div>
                     </div>
                 </div>
