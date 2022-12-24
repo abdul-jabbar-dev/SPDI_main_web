@@ -1,5 +1,5 @@
 
-import React  from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { newsData as data } from '../Api/news';
 import Footer from '../globalComponents/Footer';

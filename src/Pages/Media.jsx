@@ -4,13 +4,21 @@ import Footer from './../globalComponents/Footer';
 import Navbar from './../globalComponents/Navbar';
 import mediaApi from '../Api/media';
 import AllPhotos from './../Components/Media/AllPhotos';
-function Media() { 
+import { Helmet } from 'react-helmet';
+
+const CustomHeader = () => {
+    return (<Helmet>
+        <title>Events</title>
+    </Helmet>)
+}
+function Media() {
     return (
         <>
+            <CustomHeader></CustomHeader>
             <Navbar></Navbar>
             <body className="bg-gray-100">
-            <PhotosMedia mediaApi={mediaApi}></PhotosMedia>
-            <AllPhotos mediaApi={mediaApi}></AllPhotos>
+                <PhotosMedia mediaApi={mediaApi}></PhotosMedia>
+                <AllPhotos mediaApi={mediaApi}></AllPhotos>
             </body>
             <Footer ></Footer>
         </>

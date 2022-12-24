@@ -19,7 +19,7 @@ import { allCourses } from '../Api/course'
 
 const CustomHeader = () => {
     return (<Helmet>
-        <title>{('Courses').toUpperCase()}</title>
+        <title>Courses</title>
     </Helmet>)
 }
 const Courses = () => {
