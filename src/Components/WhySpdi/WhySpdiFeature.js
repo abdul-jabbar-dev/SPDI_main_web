@@ -30,7 +30,7 @@ export default function WhySpdiFeature() {
 
             <ul className="grid place-content-center sm:grid-cols-2 gap-8">
                 {
-                    data.map(whatwedo => <SingleSql whatwedo={whatwedo}></SingleSql>)
+                    data.map((whatwedo,i) => <SingleSql key={i} whatwedo={whatwedo}></SingleSql>)
                 }
             </ul>
         </div>

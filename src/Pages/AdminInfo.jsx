@@ -5,19 +5,28 @@ import { Helmet } from 'react-helmet';
 // import AdminList from '../Components/News/AdminList';
 import Footer from '../globalComponents/Footer';
 import Navbar from '../globalComponents/Navbar';
-// import mannan from '../resource/member/mannan.jpg';
-import { members } from './../Api/members';
+// import mannan from '../resource/member/mannan.jpg'; 
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-const CustomHeader = () => {
-    return (<Helmet>
-        <title>Admission</title>
-    </Helmet>)
-}
+
 const AdminInfo = () => {
+    const [members, setMembers] = useState([])
+    useEffect(() => {
+        try {
+            fetch('http://localhost:5000/users/')
+                .then((res) => res.json())
+                .then((data) => setMembers(data))
+        } catch (error) {
+            console.log(error)
+        }
+    }, [])
 
+
+    console.log(members)
     return (
         <>
-            <CustomHeader></CustomHeader>
+            <Helmet></Helmet>
             <Navbar></Navbar>
             <div className='container mx-auto'>
                 {/* president */}
@@ -27,15 +36,15 @@ const AdminInfo = () => {
                             <div className="flex flex-col sm:flex-row justify-around items-center">
                                 <div className="lg:w-7/12 lg:ml-14 lg:p-0 p-7 order-2 sm:order-1">
                                     <h1 className="sm:text-5xl text-4xl text-gray-700 font-medium leading-tight mb-5 capitalize">
-                                        {members.find(data => data.designation === 'president').name}</h1>
+                                        {members.find(data => data.role === 'president')?.name}</h1>
                                     <p className="text-xl text-gray-500">
-                                        {members.find(data => data.designation === 'president')?.name}
+                                        {members.find(data => data.role === 'president')?.designation}
                                     </p>
-                                </div>
+                                </div> 
                                 <div className="lg:w-4/12 rounded-full scale-100   order-1 sm:order-2">
                                     <img className=" rounded-full ring-4 mx-auto ring-gray-300 object-cover" alt="sahil logo"
-                                        width="250" height="250" src={members.find(data => data.designation ===
-                                            'president').img} />
+                                        width="250" height="250" src={`http://localhost:5000/${members.find(data => data.role ===
+                                            'president')?.image}`} />
                                 </div>
                             </div>
                         }
@@ -58,7 +67,7 @@ const AdminInfo = () => {
                             {
                                 members.filter(data => data.role !== 'president').map((user, i) => <div key={i}
                                     className="flex flex-col items-center p-8 transition-colors duration-200 transform cursor-pointer group hover:bg-gray-300 rounded-xl">
-                                    <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={user.img}
+                                    <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={`http://localhost:5000/${user.image}`}
                                         alt="" />
 
                                     <h1

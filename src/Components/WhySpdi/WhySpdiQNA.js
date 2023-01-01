@@ -37,7 +37,7 @@ const WhySpdiQNA = (props) => {
             <h4 className="text-4xl font-bold text-gray-900 tracking-widest uppercase text-center">FAQ</h4>
             <p className="text-center text-gray-600 text-sm mt-2">Here are some of the frequently asked questions</p>
             {
-                data.map(qna => <PerQna qna={qna}></PerQna>)
+                data.map((qna,i) => <PerQna key={i} qna={qna}></PerQna>)
             }
         </div>
 
