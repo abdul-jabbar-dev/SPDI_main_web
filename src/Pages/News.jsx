@@ -6,6 +6,8 @@ import Footer from '../globalComponents/Footer';
 import Navbar from '../globalComponents/Navbar';
 import noImage from '../resource/headerlogo.png'
 import clip from '../resource/clip.png'
+import download from '../resource/download.gif'
+import {AiOutlineCloudDownload} from 'react-icons/ai'
 const CustomHeader = () => {
     return (<Helmet>
         <title>Notifications</title>
@@ -22,7 +24,9 @@ const News = () => {
     }
     const createId = (id, i) => 'cid' + (id)?.toLowerCase()?.replace(/ /g, '')?.slice(0, 3) + i
     const addDefaultSrc = (ev) => {
-        ev.target.src = clip
+        ev.target.alt = 'Click Here to download'
+        ev.target.src = download 
+        ev.target.classList='w-20 opacity-80' 
     }
 
     const getStatus = (s) => {
@@ -58,7 +62,7 @@ const News = () => {
                                 <div key={i} className="container px-5  mx-auto">
                                     <span className={item.publishDate.split('/')[1] !== data[i - 1]?.publishDate.split('/')[1] ? " date ".concat("text-gray-900 relative inline-block  uppercase font-medium my-3 ", '') : ''}>{item.publishDate.split('/')[1] !== data[i - 1]?.publishDate.split('/')[1] && item.publishDate.split('/')[1] + ' ' + item.publishDate.split('/')[2]}</span>
 
-                                    <div id={createId(item.news, i)} className="p-5 bg-white flex items-center mx-auto border-b my-1 border-gray-200 rounded-lg sm:flex-row flex-col">
+                                    <div id={createId(item.headline, i)} className="p-5 bg-white flex items-center mx-auto border-b my-1 border-gray-200 rounded-lg sm:flex-row flex-col">
 
                                         <div className="sm:w-36 mb-auto sm:h-32 h-20 w-20 sm:mr-6 inline-flex items-center justify-center flex-shrink-0">
                                             <a href={item.file ? item.file : null} target="_blank" download="YourName resume.pdf" rel="noopener noreferrer" className='relative'>
@@ -76,7 +80,7 @@ const News = () => {
                                             </a>
                                         </div>
                                         <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                                            <h1 className="text-black text-xl title-font font-bold mb-2">{item.news}</h1>
+                                            <h1 className="text-black text-xl title-font font-bold mb-2">{item.headline}</h1>
 
                                             <p className="leading-relaxed text-base">{item?.description}</p>
                                             <div className="py-4">
