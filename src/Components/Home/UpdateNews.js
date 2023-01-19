@@ -23,7 +23,7 @@ const UpdateNews = () => {
                                     <span className="bg-blue-400 h-2 w-2 rounded-full block mt-2"></span>
                                 </div>
                                 <div className="w-9/12">
-                                    <HashLink to={`news#${createId(news.news, i)}`}><span className="text-sm hover:text-sky-900 font-semibold block">{news.news}</span></HashLink>
+                                    <HashLink to={`news#${createId(news.news, i)}`}><span className="text-sm hover:text-sky-900 font-semibold block">{news.headline}</span></HashLink>
                                 </div>
                             </div>
                         </div>)

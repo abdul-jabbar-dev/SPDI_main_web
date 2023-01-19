@@ -1,11 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-// import { Helmet } from 'react-helmet';
-// import { NavLink } from 'react-router-dom';
-// import AdminList from '../Components/News/AdminList';
 import Footer from '../globalComponents/Footer';
 import Navbar from '../globalComponents/Navbar';
-// import mannan from '../resource/member/mannan.jpg'; 
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -20,10 +16,7 @@ const AdminInfo = () => {
         } catch (error) {
             console.log(error)
         }
-    }, [])
-
-
-    console.log(members)
+    }, []) 
     return (
         <>
             <Helmet></Helmet>
@@ -40,7 +33,7 @@ const AdminInfo = () => {
                                     <p className="text-xl text-gray-500">
                                         {members.find(data => data.role === 'president')?.designation}
                                     </p>
-                                </div> 
+                                </div>
                                 <div className="lg:w-4/12 rounded-full scale-100   order-1 sm:order-2">
                                     <img className=" rounded-full ring-4 mx-auto ring-gray-300 object-cover" alt="sahil logo"
                                         width="250" height="250" src={`http://localhost:5000/${members.find(data => data.role ===
