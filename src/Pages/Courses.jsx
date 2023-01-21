@@ -4,7 +4,8 @@ import CoursesItems from '../Components/Courses/CoursesItems';
 import Navbar from '../globalComponents/Navbar';
 import Footer from '../globalComponents/Footer';
 import { Helmet } from 'react-helmet';
-import { allCourses } from '../Api/course'
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const CustomHeader = () => {
     return (<Helmet>
@@ -12,6 +13,12 @@ const CustomHeader = () => {
     </Helmet>)
 }
 const Courses = () => {
+    const [allCourses, setAllCourses] = useState([])
+    useEffect(() => {
+        fetch(process.env.REACT_APP_ROOT_URL+'/courses')
+        .then(res=>res.json())
+        .then(res=>setAllCourses(res))
+    }, [])
     return (
         <div className="bg-gray-100 ">
             <CustomHeader></CustomHeader>
@@ -19,7 +26,7 @@ const Courses = () => {
             <br />
             <div className=' container mx-auto  min-h-screen  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 '>
                 {
-                    allCourses.map((item, i) => <CoursesItems name={item.title} img={item.img} discreption={item.discreption} key={i} i={i}> </CoursesItems>)
+                    allCourses.map((item, i) => <CoursesItems item={item} key={i}> </CoursesItems>)
                 }
             </div>
             <Footer></Footer>

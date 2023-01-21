@@ -26,6 +26,7 @@ const Home = () => {
                 setIsLoding(false)
             })
     }, []) 
+    console.log(pageData)
     return (
         <>
 

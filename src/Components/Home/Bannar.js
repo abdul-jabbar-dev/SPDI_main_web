@@ -66,8 +66,7 @@ const Bannar = ({ pageData }) => {
                                 <img className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full"
                                     src={process.env.REACT_APP_ROOT_URL + '/' + pageData.featureBackground} alt="" />
                             </div>
-                        </div>
-
+                        </div> 
                         <hr className="border-gray-200 my-12 dark:border-gray-700" />
 
                         <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
