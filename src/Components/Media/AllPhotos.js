@@ -42,14 +42,12 @@ function AllPhotos({ mediaApi }) {
               ))}
             </div>
 
-            <AiOutlineDown
-              className={` ${
-                mediaApi.length + 1 <= view
-                  ? "hidden"
-                  : "cursor-pointer bg-gray-800 text-white rounded-full p-2 text-3xl font-bold mx-auto  mt-4"
-              }}`}
-              onClick={() => mediaApi.length + 1 >= view && setView(view + 4)}
-            />
+            {mediaApi.length + 1 > view && (
+              <AiOutlineDown
+                className='cursor-pointer bg-gray-800 text-white rounded-full p-2 text-3xl font-bold mx-auto  mt-4'
+                onClick={() => mediaApi.length + 1 >= view && setView(view + 4)}
+              />
+            )}
           </div>
         </section>
       </div>
