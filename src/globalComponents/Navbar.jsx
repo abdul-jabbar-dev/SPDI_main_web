@@ -25,7 +25,7 @@ const navigation = [
     { name: 'WHY SPDI', to: '/whyspdi', current: false },
     { name: 'EVENTS', to: '/events', current: false },
     { name: 'ADMIN INFO', to: '/admininfo', current: false },
-    { name: 'LOGIN', to: '/login', current: false },
+    // { name: 'LOGIN', to: '/login', current: false },
 ]
 const userNavigation = [
     { name: 'Your Profile', to: '/studentdash' },
@@ -127,7 +127,7 @@ export default function Navbar() {
 
 
                                             {/* Profile dropdown */}
-                                            <Menu as="div" className="ml-3 relative">
+                                            {/* <Menu as="div" className="ml-3 relative">
                                                 <div>
                                                     <Menu.Button className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                                         <span className="sr-only">Open user menu</span>
@@ -155,7 +155,7 @@ export default function Navbar() {
                                                         ))}
                                                     </Menu.Items>
                                                 </Transition>
-                                            </Menu>
+                                            </Menu> */}
                                         </div>
                                     </div>
                                     <div className="-mr-2 flex md:hidden">
