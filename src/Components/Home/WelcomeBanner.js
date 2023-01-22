@@ -20,7 +20,9 @@ const WelcomeBanner = ({ pageData }) => {
           </Link>
         </div>
         <img
-          src={"http://localhost:5000/" + pageData.headingBackground}
+          src={
+            process.env.REACT_APP_ROOT_URL + "/" + pageData.headingBackground
+          }
           className='w-full opacity-80'
           alt=''
         />

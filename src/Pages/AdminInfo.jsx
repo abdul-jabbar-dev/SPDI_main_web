@@ -9,7 +9,7 @@ const AdminInfo = () => {
   const [members, setMembers] = useState([]);
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/users/")
+      fetch(process.env.REACT_APP_ROOT_URL + "/users/")
         .then((res) => res.json())
         .then((data) => setMembers(data));
     } catch (error) {
@@ -43,7 +43,7 @@ const AdminInfo = () => {
                     alt='sahil logo'
                     width='250'
                     height='250'
-                    src={`http://localhost:5000/${
+                    src={`${process.env.REACT_APP_ROOT_URL}${
                       members.find((data) => data.role === "president")?.image
                     }`}
                   />
@@ -77,7 +77,7 @@ const AdminInfo = () => {
                   >
                     <img
                       className='object-cover w-32 h-32 rounded-full ring-4 ring-gray-300'
-                      src={`http://localhost:5000/${user.image}`}
+                      src={`${process.env.REACT_APP_ROOT_URL}${user.image}`}
                       alt=''
                     />
 

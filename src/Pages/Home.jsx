@@ -14,10 +14,10 @@ const Home = () => {
   const [pageData, setPageData] = useState([]);
   const [isLoding, setIsLoding] = useState(!!pageData);
   const [state, setState] = useState(mediaApi || []);
-
+  console.log(process.env.REACT_APP_ROOT_URL + "/dynamicpage");
   useEffect(() => {
     setIsLoding(true);
-    fetch(`http://localhost:5000/dynamicpage`)
+    fetch(process.env.REACT_APP_ROOT_URL + "/dynamicpage")
       .then((res) => res.json())
       .then((res) => {
         setPageData(res);
