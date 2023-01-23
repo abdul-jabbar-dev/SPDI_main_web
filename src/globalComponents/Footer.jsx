@@ -16,8 +16,8 @@ const Footer = () => {
                 className='w-16 h-16 text-white   rounded-full'
                 alt=''
               />
-              <span className='text-3xl ml-2'>
-                Skills and Professional Development Industry
+              <span className='text-3xl text-gray-800 ml-2'>
+                SKILLS AND PROFESSIONAL DEVELOPMENT INDUSTRY
               </span>
             </a>
           </div>

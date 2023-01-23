@@ -4,14 +4,9 @@ import Navbar from './../../globalComponents/Navbar';
 import Footer from './../../globalComponents/Footer';
 import { MdHelp } from 'react-icons/md';
 import { FaPaperPlane } from 'react-icons/fa';
-import { GrUpdate } from 'react-icons/gr';
-import { MdAccessTimeFilled } from 'react-icons/md';
+import { GrUpdate } from 'react-icons/gr'; 
 import { ImTrophy } from 'react-icons/im';
-import { TbCertificate } from 'react-icons/tb';
-import { AiFillSchedule } from 'react-icons/ai';
-import { BsFillCalendarCheckFill } from 'react-icons/bs';
-import { GoStar } from 'react-icons/go';
-import { allCourses } from '../../Api/course';
+import { TbCertificate } from 'react-icons/tb';  
 import { useEffect } from 'react';
 import { useState } from 'react';
 import MentorDetails from './MentorDetails';
@@ -21,8 +16,13 @@ function SingleCourse() {
     const [data, setData] = useState({})
     useEffect(() => {
 
-        setData(allCourses.find(res => res._id === parseInt(perams.courseid)))
-    }, [perams.courseid])
+        
+        fetch(process.env.REACT_APP_ROOT_URL+'/courses')
+        .then(res=>res.json())
+        .then(res=>setData(res.find(perCourse=>perCourse._id===perams.courseid))) 
+
+
+    }, [perams.courseid]) 
     return (
         <div >
             <Navbar></Navbar>
@@ -33,7 +33,7 @@ function SingleCourse() {
                     <div className="flex flex-wrap items-center ">
                         <div className="w-full md:w-5/12 px-12 md:px-4 mx-auto -mt-78">
                             <div className="relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg rounded-lg bg-gray-800">
-                                <img alt="..." src={data.img} height={'400px'} className="w-full align-middle rounded-t-lg" />
+                                <img alt="..." src={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} height={'400px'} className="w-full align-middle rounded-t-lg" />
 
                                 <blockquote className="relative p-8 mb-4">
                                     <div className='flex justify-between'>
@@ -45,10 +45,10 @@ function SingleCourse() {
                                         </h4>
                                     </div>
                                     <div className='flex'>
-                                        {Array(data.rating).fill(1).map((st, si) => <GoStar className='text-orange-500' key={si}></GoStar>)}
+                                        {/* {Array((data?.rating)*1).fill(1).map((st, si) => <GoStar className='text-orange-500' key={si}></GoStar>)} */}
                                     </div>
                                     <p className="text-md font-light mt-2 text-white">
-                                        {data?.discreption}
+                                        {data?.description}
                                     </p>
                                 </blockquote>
                             </div>
@@ -65,7 +65,7 @@ function SingleCourse() {
                                             <h6 className="text-xl mb-1 font-semibold">CSS Components</h6>
                                             <p className="mb-4  text-gray-500 capitalize  ">
                                                 {
-                                                    data?.features?.certificate
+                                                    data?.completion
                                                 }
                                             </p>
                                         </div>
@@ -80,7 +80,7 @@ function SingleCourse() {
                                             </h6>
                                             <p className="mb-4  text-gray-500 capitalize  ">
                                                 {
-                                                    data?.features?.courseDetails
+                                                    data?.benefit
                                                 }
                                             </p>
                                         </div>
@@ -95,7 +95,7 @@ function SingleCourse() {
                                             <h6 className="text-xl mb-1 font-semibold">Pages</h6>
                                             <p className=" mb-4  text-gray-500 capitalize   ">
                                                 {
-                                                    data?.features?.future
+                                                    data?.eligibility
                                                 }
                                             </p>
                                         </div>
@@ -108,7 +108,7 @@ function SingleCourse() {
                                             <h6 className="text-xl mb-1 font-semibold">Documentation</h6>
                                             <p className="mb-4  text-gray-500 capitalize  ">
                                                 {
-                                                    data?.features?.skils
+                                                    data?.eligibility
                                                 }
                                             </p>
                                         </div>
@@ -121,22 +121,22 @@ function SingleCourse() {
                 <div >
                     <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white p-4 shadow-lg">
                         <div className='flex w-full md:w-8/12 md:mx-6'>
-                            <div className="w-full">
+                            {/* <div className="w-full">
                                 <h3 className='my-4 font-bold text-gray-800 text-xl'>Course Schedule</h3>
-                                {(data?.schedule?.day) && <div className='flex items-center mb-2'>
+                                {(data?.date) && <div className='flex items-center mb-2'>
                                     <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-cyan-100 bg-cyan-50">
                                         <AiFillSchedule className="h-4 w-4  text-cyan-800 " />
                                     </div>
                                     <div className='  w-full text-gray-600 '>
-                                        Date: <span>{data?.schedule?.day.join(', ')}</span>
+                                        Date: <span>{data?.date.join(', ')}</span>
                                     </div>
                                 </div>}
-                                {(data?.schedule?.time) && <div className='flex items-center  mb-2 text-gray-600'>
+                                {(data?.time) && <div className='flex items-center  mb-2 text-gray-600'>
                                     <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
                                         <MdAccessTimeFilled className="h-4 w-4 text-orange-400" />
                                     </div>
                                     <div className='  w-full '>
-                                        Time: <span>{data?.schedule?.time}</span>
+                                        Time: <span>{data?.time}</span>
                                     </div>
                                 </div>}
                                 {(data?.duration) && <div className='flex items-center text-gray-600 mb-2'>
@@ -147,7 +147,7 @@ function SingleCourse() {
                                         Duration: <span className=' '>{data?.duration}</span>
                                     </div>
                                 </div>}
-                            </div>
+                            </div> */}
                             <div className="w-full ">
                                 <h3 className='my-4 font-bold text-gray-800 text-xl'>After Completion</h3>
                                 <div className='flex items-center'>
@@ -161,7 +161,7 @@ function SingleCourse() {
                             </div>
                         </div>
                         <div className="w-full md:w-4/12 mt-6 md:mt-0 ">
-                            <MentorDetails data={data} />
+                            <MentorDetails data={data.mentor} />
                         </div>
                     </div>
                 </div>

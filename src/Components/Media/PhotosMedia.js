@@ -5,7 +5,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper";
-export default function ({ mediaApi }) {
+function PhotosMedia({ mediaApi }) {
     return (
         <div>
             <div className="container m-auto  gap-8 grid grid-cols-4 overflow-hidden  ">
@@ -26,7 +26,7 @@ export default function ({ mediaApi }) {
                     >
                         {
                             mediaApi.map((e, i) => <> <SwiperSlide key={i}>
-                                <img src={e.image} alt="" height={'100%'} />
+                                <img src={e?.image} alt="" height={'100%'} />
                             </SwiperSlide></>)
                         }
 
@@ -37,3 +37,6 @@ export default function ({ mediaApi }) {
         </div>
     )
 }
+
+
+export default PhotosMedia

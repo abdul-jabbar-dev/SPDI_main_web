@@ -1,13 +1,4 @@
-import React from "react";
-import { FaChalkboardTeacher } from "@react-icons/all-files/fa/FaChalkboardTeacher";
-import { BsChat } from "@react-icons/all-files/bs/BsChat";
-import { FaUserGraduate } from "@react-icons/all-files/fa/FaUserGraduate";
-import spdi from "../../resource/supports/spdi.png";
-import duet from "../../resource/supports/DUET_Logo.png";
-import a2 from "../../resource/supports/a2.png";
-import dg from "../../resource/supports/dg.png";
-import gov from "../../resource/supports/gov.png";
-import headerImage from "../../resource/exam.jpg";
+import React from "react"; 
 
 const Bannar = ({ pageData }) => {
   return (

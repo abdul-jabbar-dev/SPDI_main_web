@@ -4,10 +4,8 @@ import { Helmet } from 'react-helmet';
 import { newsData as data } from '../Api/news';
 import Footer from '../globalComponents/Footer';
 import Navbar from '../globalComponents/Navbar';
-import noImage from '../resource/headerlogo.png'
-import clip from '../resource/clip.png'
-import download from '../resource/download.gif'
-import {AiOutlineCloudDownload} from 'react-icons/ai'
+import noImage from '../resource/headerlogo.png' 
+import download from '../resource/download.gif' 
 const CustomHeader = () => {
     return (<Helmet>
         <title>Notifications</title>
@@ -25,8 +23,8 @@ const News = () => {
     const createId = (id, i) => 'cid' + (id)?.toLowerCase()?.replace(/ /g, '')?.slice(0, 3) + i
     const addDefaultSrc = (ev) => {
         ev.target.alt = 'Click Here to download'
-        ev.target.src = download 
-        ev.target.classList='w-20 opacity-80' 
+        ev.target.src = download
+        ev.target.classList = 'w-20 opacity-80'
     }
 
     const getStatus = (s) => {

@@ -106,7 +106,7 @@ export default function Navbar() {
                                                             </Transition>
                                                         </Menu></div> :
                                                         <NavLink
-                                                            key={item.name}
+                                                            key={i}
                                                             to={item.to}
 
                                                             className={({ isActive }) => {

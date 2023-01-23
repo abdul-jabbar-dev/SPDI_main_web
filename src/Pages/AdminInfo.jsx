@@ -1,5 +1,4 @@
-import React from "react";
-import { Helmet } from "react-helmet";
+import React from "react"; 
 import Footer from "../globalComponents/Footer";
 import Navbar from "../globalComponents/Navbar";
 import { useState } from "react";
@@ -15,10 +14,9 @@ const AdminInfo = () => {
     } catch (error) {
       //console.log(error)
     }
-  }, []);
+  }, []); 
   return (
-    <>
-      <Helmet></Helmet>
+    <> 
       <Navbar></Navbar>
       <div className='container mx-auto'>
         {/* president */}
@@ -28,11 +26,11 @@ const AdminInfo = () => {
               <div className='flex flex-col sm:flex-row justify-around items-center'>
                 <div className='lg:w-7/12 lg:ml-14 lg:p-0 p-7 order-2 sm:order-1'>
                   <h1 className='sm:text-5xl text-4xl text-gray-700 font-medium leading-tight mb-5 capitalize'>
-                    {members.find((data) => data.role === "president")?.name}
+                    {members.find((data) => data?.role === "president")?.name}
                   </h1>
                   <p className='text-xl text-gray-500'>
                     {
-                      members.find((data) => data.role === "president")
+                      members.find((data) => data?.role === "president")
                         ?.designation
                     }
                   </p>
@@ -43,8 +41,8 @@ const AdminInfo = () => {
                     alt='sahil logo'
                     width='250'
                     height='250'
-                    src={`${process.env.REACT_APP_ROOT_URL}${
-                      members.find((data) => data.role === "president")?.image
+                    src={`${process.env.REACT_APP_ROOT_URL}/${
+                      members.find((data) => data?.role === "president")?.image
                     }`}
                   />
                 </div>
@@ -77,16 +75,16 @@ const AdminInfo = () => {
                   >
                     <img
                       className='object-cover w-32 h-32 rounded-full ring-4 ring-gray-300'
-                      src={`${process.env.REACT_APP_ROOT_URL}${user.image}`}
+                      src={`${process.env.REACT_APP_ROOT_URL}/${user?.image}`}
                       alt=''
                     />
 
                     <h1 className='mt-4 text-2xl font-semibold text-gray-700 capitalize  '>
-                      {user.name}
+                      {user?.name}
                     </h1>
 
                     <p className='mt-2 text-gray-500 capitalize  '>
-                      {user.designation}
+                      {user?.designation}
                     </p>
 
                     <div className='flex mt-3 -mx-2'>

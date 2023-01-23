@@ -16,60 +16,60 @@ const AdministratorInfo = [
 const AdminList = () => {
     return (
 
-            <section className="antialiased bg-gray-100 text-gray-600 h-screen px-4">
-                <div className=" w-full h-full">
-                    {/* <!-- Table --> */}
-                    <div className="w-full bg-white shadow-lg rounded-sm border border-gray-200">
-                        <header className="px-5 py-4 border-b border-gray-100">
-                            <h2 className="font-semibold text-gray-800">Administrators</h2>
-                        </header>
-                        <div className="p-3">
-                            <div className="overflow-x-auto">
-                                <table className="table-auto w-full">
-                                    <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
-                                        <tr>
-                                            <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Name</div>
-                                            </th>
-                                            <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Designation </div>
-                                            </th>
-                                            <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Educational Qualification </div>
-                                            </th>
-                                            <th className="p-2 whitespace-nowrap">
-                                                <div className="font-semibold text-left">Phone </div>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="text-sm divide-y divide-gray-100">
-                                        {
+        <section className="antialiased bg-gray-100 text-gray-600 h-screen px-4">
+            <div className=" w-full h-full">
+                {/* <!-- Table --> */}
+                <div className="w-full bg-white shadow-lg rounded-sm border border-gray-200">
+                    <header className="px-5 py-4 border-b border-gray-100">
+                        <h2 className="font-semibold text-gray-800">Administrators</h2>
+                    </header>
+                    <div className="p-3">
+                        <div className="overflow-x-auto">
+                            <table className="table-auto w-full">
+                                <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                    <tr>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Name</div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Designation </div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Educational Qualification </div>
+                                        </th>
+                                        <th className="p-2 whitespace-nowrap">
+                                            <div className="font-semibold text-left">Phone </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-sm divide-y divide-gray-100">
+                                    {
                                         AdministratorInfo.map((profile, i) => <tr key={i}>
-                                                <td className="p-2 whitespace-nowrap">
-                                                    <div className="flex items-center">
-                                                        <div className="w-16 h-16 flex-shrink-0 mr-2 sm:mr-3"><img className="rounded-full" src={profile.img} width="80" height="80" alt={profile.name}/></div>
-                                                        <div className="font-medium text-gray-800">{profile.name}</div>
-                                                    </div>
-                                                </td>
-                                                <td className="p-2 whitespace-nowrap">
-                                                    <div className="text-left">{profile.designation}</div>
-                                                </td>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="flex items-center">
+                                                    <div className="w-16 h-16 flex-shrink-0 mr-2 sm:mr-3"><img className="rounded-full" src={profile.img} width="80" height="80" alt={profile.name} /></div>
+                                                    <div className="font-medium text-gray-800">{profile.name}</div>
+                                                </div>
+                                            </td>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="text-left">{profile.designation}</div>
+                                            </td>
 
-                                                <td className="p-2 whitespace-nowrap">
-                                                    <div className="text-left ">{profile.eduQualification}</div>
-                                                </td>
-                                                <td className="p-2 whitespace-nowrap">
-                                                    <div className="text-left ">{profile.phoneNumber}</div>
-                                                </td>
-                                            </tr>)
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="text-left ">{profile.eduQualification}</div>
+                                            </td>
+                                            <td className="p-2 whitespace-nowrap">
+                                                <div className="text-left ">{profile.phoneNumber}</div>
+                                            </td>
+                                        </tr>)
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
     );
 };

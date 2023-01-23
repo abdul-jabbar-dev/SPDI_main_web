@@ -40,7 +40,7 @@ const Events = ({ state }) => {
                         <div className="flex-shrink max-w-full w-full lg:w-1/2">
                             <div className="box-one flex flex-row flex-wrap">
                                 {
-                                    state.slice(1, 5).map((data, i) => <article key={i} className="flex-shrink max-w-full w-full sm:w-1/2">
+                                    state.slice(1, 5).map((data, i) => <div key={i} className="flex-shrink max-w-full w-full sm:w-1/2">
                                         <div className="relative hover-img max-h-48 overflow-hidden">
                                             <a href="/">
                                                 <img className="max-w-full w-full mx-auto h-auto"
@@ -59,7 +59,7 @@ const Events = ({ state }) => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </article>)
+                                    </div>)
                                 }
                             </div>
                         </div>
