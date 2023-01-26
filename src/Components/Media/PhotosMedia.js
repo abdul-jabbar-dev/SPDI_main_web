@@ -26,7 +26,7 @@ function PhotosMedia({ mediaApi }) {
                     >
                         {
                             mediaApi.map((e, i) => <> <SwiperSlide key={i}>
-                                <img src={e?.image} alt="" height={'100%'} />
+                                <img src={process.env.REACT_APP_ROOT_URL + '/' + e.thumbnail} className='-mt-64 px-16' alt={e.title} height={'60%'} />
                             </SwiperSlide></>)
                         }
 

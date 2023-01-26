@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AiOutlineDown } from "react-icons/ai";
 function AllPhotos({ mediaApi }) {
   const [view, setView] = useState(4);
-
+  console.log(mediaApi)
   return (
     <>
       <div className=' bg-indigo-50'>
@@ -22,21 +22,21 @@ function AllPhotos({ mediaApi }) {
                     <img
                       alt='ecommerce'
                       className='block h-full w-full object-cover object-center cursor-pointer'
-                      src={e.image}
+                      src={process.env.REACT_APP_ROOT_URL + '/' + e.thumbnail}
                     />
                   </a>
                   <div className='mt-4'>
                     <div className='flex items-center justify-between'>
-                      <h3 className='title-font mb-1 text-md text-gray-500'>
-                        {e.topic}
+                      <h3 className='title-font font-medium mb-1 text-lg text-gray-900'>
+                        {e.title}
                       </h3>
                       <p className='title-font mb-1 text-xs tracking-widest text-gray-500'>
                         {e.date}
                       </p>
                     </div>
-                    <h2 className='title-font text-lg font-medium text-gray-900'>
-                      {e.title}
-                    </h2>
+                    <p className='title-font text-md text-justify text-gray-500'>
+                      {(e.topic).slice(0,100)}
+                    </p>
                   </div>
                 </div>
               ))}

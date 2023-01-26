@@ -2,26 +2,31 @@ import React from "react";
 import PhotosMedia from "../Components/Media/PhotosMedia";
 import Footer from "./../globalComponents/Footer";
 import Navbar from "./../globalComponents/Navbar";
-import mediaApi from "../Api/media";
 import AllPhotos from "./../Components/Media/AllPhotos";
-import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
+import Loading from './../globalComponents/Loading';
 
-const CustomHeader = () => {
-  return (
-    <Helmet>
-      <title>Events</title>
-    </Helmet>
-  );
-};
 function Media() {
+  const [allEvent, setAllEvent] = useState([])
+  const [isLoding, setIsLoding] = useState(true)
+  useEffect(() => {
+    setIsLoding(true)
+    fetch(`${process.env.REACT_APP_ROOT_URL}/events`)
+      .then(res => res.json())
+      .then(res => {
+        setAllEvent(res)
+        setIsLoding(false)
+      })
+  }, [])
   return (
     <>
-      <CustomHeader></CustomHeader>
       <Navbar></Navbar>
-      <div className='bg-gray-100'>
-        <PhotosMedia mediaApi={mediaApi}></PhotosMedia>
-        <AllPhotos mediaApi={mediaApi}></AllPhotos>
-      </div>
+      {
+        isLoding ? <Loading></Loading> : <div className='bg-gray-100'>
+          <PhotosMedia mediaApi={allEvent}></PhotosMedia>
+          <AllPhotos mediaApi={allEvent}></AllPhotos>
+        </div>
+      }
       <Footer></Footer>
     </>
   );
