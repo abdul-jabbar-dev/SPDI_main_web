@@ -15,7 +15,7 @@ import { useState } from 'react';
 import MentorDetails from './MentorDetails';
 
 function SingleCourse() {
-    
+
     const perams = useParams()
     const [data, setData] = useState({})
 
@@ -177,66 +177,21 @@ function SingleCourse() {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {/* <div className="flex flex-col">
-                    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
-                                
-                                <MdOutlineAssignment className="h-6 w-6 text-blue-400" />
+                <br />
+                <div >
+                    <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white p-4 shadow-lg">
+                        {data.coursecontent && <div className='w-full md:mx-6'>
+                            <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Schedule</h3>
+                            <small class="m-0 p-0">{(data.coursecontent).length} lectures • 35 total Class</small>
+                            <div class="w-3/4 bg-slate-100 p-3 rounded">
+                                <ul class="">
+                                    {data.coursecontent && (data.coursecontent).map((content, i) => <li key={i} class="text-neutral-600">{content}</li>)
+                                    }
+                                </ul>
                             </div>
-
-                            <div className="ml-4">
-                                <h2 className="font-semibold">Total Assignment {data.totalAssignmet}</h2>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                                <GiDuration className="h-6 w-6 text-orange-400" />
-                            </div>
-
-                            <div className="ml-4">
-                                <h2 className="font-semibold">Total {data.duration}</h2>
-                            </div>
-                        </div>
-                        <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-red-100 bg-red-50">
-                                <BsFillPeopleFill className="h-6 w-6 text-red-400" />
-                            </div>
-
-                            <div className="ml-4">
-                                <h2 className="font-semibold">Total Student {data.totalStudens}</h2>
-                            </div>
-                        </div>
-                        <div className="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-indigo-100 bg-indigo-50">
-                                <BsListCheck className="h-6 w-6 text-indigo-400" >
-                                </BsListCheck>
-                            </div>
-
-                            <div className="ml-4">
-                                <h2 className="font-semibold">Total Clasess {data.totalClasses}</h2>
-                            </div>
-                        </div>
+                        </div>}
                     </div>
-                </div> */}
+                </div>
             </div>
 
             <Footer ></Footer>
