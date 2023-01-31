@@ -9,10 +9,12 @@ import { GrUpdate } from 'react-icons/gr';
 import { ImTrophy } from 'react-icons/im';
 import { GiDuration } from 'react-icons/gi';
 import { TbCertificate } from 'react-icons/tb';
+import { FaPlay } from 'react-icons/fa';
 import { MdAccessTimeFilled } from 'react-icons/md';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import MentorDetails from './MentorDetails';
+import Loading from '../../globalComponents/Loading';
 
 function SingleCourse() {
 
@@ -32,166 +34,165 @@ function SingleCourse() {
 
             <div className="container py-16 bg-gray-100 mx-auto ">
 
-                <section className="relative bg-blueGray-50">
-                    <div className="flex flex-wrap items-center ">
-                        <div className="w-full md:w-5/12 px-12 md:px-4 mx-auto -mt-78">
-                            <div className="relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg rounded-lg bg-gray-800">
-                                <img alt="..." src={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} height={'400px'} className="w-full align-middle rounded-t-lg" />
+                {data ? <div class="">
 
-                                <blockquote className="relative p-8 mb-4">
-                                    <div className='flex justify-between'>
-                                        <h4 className="text-xl font-bold text-white">
-                                            {data?.title}
-                                        </h4>
-                                        <h4 className="text-xl font-semibold text-orange-500">
-                                            {data?.price}<span>&#2547;</span>
-                                        </h4>
+                    <div className="relative bg-blueGray-50">
+                        <div className="flex flex-wrap items-center ">
+                            <div className="w-full md:w-5/12 px-12 md:px-4 mx-auto -mt-78">
+                                <div className="relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg rounded-lg bg-gray-800">
+                                    <div class="max-h-[340px] relative flex items-center justify-center ">
+                                        <FaPlay className=' w-20 h-20 absolute opacity-30 hover:scale-125 hover:cursor-pointer hover:ease-in-out duration-200' />
+                                        <img alt="..." src={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} height={'100%'} className="w-full align-middle rounded-t-lg" />
                                     </div>
-                                    <div className='flex'>
-                                        {/* {Array((data?.rating)*1).fill(1).map((st, si) => <GoStar className='text-orange-500' key={si}></GoStar>)} */}
-                                    </div>
-                                    <p className="text-md font-light mt-2 text-white">
-                                        {data?.description}
-                                    </p>
-                                </blockquote>
-                            </div>
-                        </div>
 
-                        <div className="w-full md:w-7/12 px-4">
-                            <div className="flex flex-wrap">
-                                <div className="w-full flex md:flex-col md:w-6/12 px-4 ">
-                                    <div className="relative flex flex-col mt-4">
-                                        <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                                < TbCertificate className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
-                                            </div>
-                                            <h6 className="text-xl mb-1 font-semibold">CSS Components</h6>
-                                            <p className="mb-4  text-gray-500 capitalize  ">
-                                                {
-                                                    data?.completion
-                                                }
-                                            </p>
+                                    <blockquote className="relative p-8 mb-4">
+                                        <div className='flex justify-between'>
+                                            <h4 className="text-xl font-bold text-white">
+                                                {data?.title}
+                                            </h4>
+                                            <h4 className="text-xl font-semibold text-orange-500">
+                                                {data?.price}<span>&#2547;</span>
+                                            </h4>
                                         </div>
-                                    </div>
-                                    <div className="relative flex flex-col min-w-0">
-                                        <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                                <MdHelp className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
-                                            </div>
-                                            <h6 className="text-xl mb-1 font-semibold">
-                                                JavaScript Components
-                                            </h6>
-                                            <p className="mb-4  text-gray-500 capitalize  ">
-                                                {
-                                                    data?.benefit
-                                                }
-                                            </p>
+                                        <div className='flex'>
+                                            {/* {Array((data?.rating)*1).fill(1).map((st, si) => <GoStar className='text-orange-500' key={si}></GoStar>)} */}
                                         </div>
-                                    </div>
+                                        <p className="text-md font-light mt-2 text-white">
+                                            {data?.description}
+                                        </p>
+                                    </blockquote>
                                 </div>
-                                <div className="w-full flex md:flex-col md:w-6/12 px-4">
-                                    <div className="relative flex flex-col min-w-0 mt-4">
-                                        <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                                <FaPaperPlane className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
+                            </div>
+                            <div className="w-full md:w-7/12 px-4">
+                                <div className="flex flex-wrap">
+                                    <div className="w-full flex md:flex-col md:w-6/12 px-4 ">
+                                        <div className="relative flex flex-col mt-4">
+                                            <div className="px-4 py-5 flex-auto">
+                                                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                                                    < TbCertificate className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
+                                                </div>
+                                                <h6 className="text-xl mb-1 font-semibold">CSS Components</h6>
+                                                <p className="mb-4  text-gray-500 capitalize  ">
+                                                    {
+                                                        data?.completion
+                                                    }
+                                                </p>
                                             </div>
-                                            <h6 className="text-xl mb-1 font-semibold">Pages</h6>
-                                            <p className=" mb-4  text-gray-500 capitalize   ">
-                                                {
-                                                    data?.eligibility
-                                                }
-                                            </p>
+                                        </div>
+                                        <div className="relative flex flex-col min-w-0">
+                                            <div className="px-4 py-5 flex-auto">
+                                                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                                                    <MdHelp className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
+                                                </div>
+                                                <h6 className="text-xl mb-1 font-semibold">
+                                                    JavaScript Components
+                                                </h6>
+                                                <p className="mb-4  text-gray-500 capitalize  ">
+                                                    {
+                                                        data?.benefit
+                                                    }
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="relative flex flex-col min-w-0">
-                                        <div className="px-4 py-5 flex-auto">
-                                            <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                                                <GrUpdate className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
+                                    <div className="w-full flex md:flex-col md:w-6/12 px-4">
+                                        <div className="relative flex flex-col min-w-0 mt-4">
+                                            <div className="px-4 py-5 flex-auto">
+                                                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                                                    <FaPaperPlane className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
+                                                </div>
+                                                <h6 className="text-xl mb-1 font-semibold">Pages</h6>
+                                                <p className=" mb-4  text-gray-500 capitalize   ">
+                                                    {
+                                                        data?.eligibility
+                                                    }
+                                                </p>
                                             </div>
-                                            <h6 className="text-xl mb-1 font-semibold">Documentation</h6>
-                                            <p className="mb-4  text-gray-500 capitalize  ">
-                                                {
-                                                    data?.eligibility
-                                                }
-                                            </p>
+                                        </div>
+                                        <div className="relative flex flex-col min-w-0">
+                                            <div className="px-4 py-5 flex-auto">
+                                                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                                                    <GrUpdate className=' text-gray-800 ' style={{ fontSize: '1.5rem' }} />
+                                                </div>
+                                                <h6 className="text-xl mb-1 font-semibold">Documentation</h6>
+                                                <p className="mb-4  text-gray-500 capitalize  ">
+                                                    {
+                                                        data?.eligibility
+                                                    }
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-                <div >
-                    <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white p-4 shadow-lg">
-                        <div className='flex w-full md:w-8/12 md:mx-6'>
-                            <div className="w-full">
-                                <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Schedule</h3>
-                                {data?.date && <div className='flex items-center'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-red-100 bg-red-50">
-                                        <BsCalendarDateFill className="h-4 w-4 text-red-400" ></BsCalendarDateFill>
-                                    </div>
-                                    <div className='w-full '>
-                                        <h4 className='text-sm text-gray-600'>{data?.date}</h4>
-                                    </div>
-                                </div>}
-                                {data?.time && <div className='flex items-center my-2'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
-                                        <MdAccessTimeFilled className="h-4 w-4 text-blue-400" ></MdAccessTimeFilled>
-                                    </div>
-                                    <div className='w-full '>
-                                        <h4 className='text-sm text-gray-600'>{data?.time}</h4>
-                                    </div>
-                                </div>}
-                                {data?.duration && <div className='flex items-center my-2'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                                        <GiDuration className="h-4 w-4 text-orange-400" ></GiDuration>
-                                    </div>
-                                    <div className='w-full '>
-                                        <h4 className='text-sm text-gray-600'>Total Duration: {data?.duration}</h4>
-                                    </div>
-                                </div>}
-                            </div>
 
-
-
-                            <div className="w-full ">
-                                <h3 className=' mb-3 font-bold text-gray-800 text-xl'>After Completion</h3>
-                                <div className='flex items-center'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-green-100 bg-green-50">
-                                        <ImTrophy className="h-4 w-4 text-green-400" />
+                    <div class="">
+                        <div  >
+                            <div className=" my-6 py-16 w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white px-4 shadow-lg">
+                                <div className='flex w-full md:w-8/12 md:mx-6'>
+                                    <div className="w-full">
+                                        <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Schedule</h3>
+                                        {data?.date && <div className='flex items-center'>
+                                            <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-red-100 bg-red-50">
+                                                <BsCalendarDateFill className="h-4 w-4 text-red-400" ></BsCalendarDateFill>
+                                            </div>
+                                            <div className='w-full '>
+                                                <h4 className='text-sm text-gray-600'>{data?.date}</h4>
+                                            </div>
+                                        </div>}
+                                        {data?.time && <div className='flex items-center my-2'>
+                                            <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
+                                                <MdAccessTimeFilled className="h-4 w-4 text-blue-400" ></MdAccessTimeFilled>
+                                            </div>
+                                            <div className='w-full '>
+                                                <h4 className='text-sm text-gray-600'>{data?.time}</h4>
+                                            </div>
+                                        </div>}
+                                        {data?.duration && <div className='flex items-center my-2'>
+                                            <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
+                                                <GiDuration className="h-4 w-4 text-orange-400" ></GiDuration>
+                                            </div>
+                                            <div className='w-full '>
+                                                <h4 className='text-sm text-gray-600'>Total Duration: {data?.duration}</h4>
+                                            </div>
+                                        </div>}
                                     </div>
-                                    <div className='w-full'>
-                                        <h4 className='text-sm text-gray-600'> Certificate of completion</h4>
+                                    <div className="w-full ">
+                                        <h3 className=' mb-3 font-bold text-gray-800 text-xl'>After Completion</h3>
+                                        <div className='flex items-center'>
+                                            <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-green-100 bg-green-50">
+                                                <ImTrophy className="h-4 w-4 text-green-400" />
+                                            </div>
+                                            <div className='w-full'>
+                                                <h4 className='text-sm text-gray-600'> Certificate of completion</h4>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div className="w-full md:w-4/12 mt-6 md:mt-0 ">
+                                    <MentorDetails data={data.mentor} />
+                                </div>
                             </div>
-
-
-
-
-
-
                         </div>
-                        <div className="w-full md:w-4/12 mt-6 md:mt-0 ">
-                            <MentorDetails data={data.mentor} />
+                        <div >
+                            <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white px-4 py-16 shadow-lg">
+                                {data.coursecontent && <div className='w-full md:mx-6'>
+                                    <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Countent</h3>
+                                    <small class="m-0 p-0">{(data.coursecontent).length} lectures • 35 total Class</small>
+                                    <div class="w-3/4 bg-slate-100 py-3 rounded">
+                                        <ul class="">
+                                            {data.coursecontent && (data.coursecontent).map((content, i) => <li key={i} class="text-neutral-600 list-disc ml-12 my-2">{content}</li>)
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br />
-                <div >
-                    <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white p-4 shadow-lg">
-                        {data.coursecontent && <div className='w-full md:mx-6'>
-                            <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Schedule</h3>
-                            <small class="m-0 p-0">{(data.coursecontent).length} lectures • 35 total Class</small>
-                            <div class="w-3/4 bg-slate-100 p-3 rounded">
-                                <ul class="">
-                                    {data.coursecontent && (data.coursecontent).map((content, i) => <li key={i} class="text-neutral-600">{content}</li>)
-                                    }
-                                </ul>
-                            </div>
-                        </div>}
-                    </div>
-                </div>
+
+                </div> : <Loading></Loading>}
             </div>
 
             <Footer ></Footer>
