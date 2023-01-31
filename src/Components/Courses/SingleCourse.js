@@ -4,25 +4,28 @@ import Navbar from './../../globalComponents/Navbar';
 import Footer from './../../globalComponents/Footer';
 import { MdHelp } from 'react-icons/md';
 import { FaPaperPlane } from 'react-icons/fa';
-import { GrUpdate } from 'react-icons/gr'; 
+import { BsCalendarDateFill } from 'react-icons/bs';
+import { GrUpdate } from 'react-icons/gr';
 import { ImTrophy } from 'react-icons/im';
-import { TbCertificate } from 'react-icons/tb';  
+import { GiDuration } from 'react-icons/gi';
+import { TbCertificate } from 'react-icons/tb';
+import { MdAccessTimeFilled } from 'react-icons/md';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import MentorDetails from './MentorDetails';
 
 function SingleCourse() {
+    
     const perams = useParams()
     const [data, setData] = useState({})
+
     useEffect(() => {
+        fetch(process.env.REACT_APP_ROOT_URL + '/courses')
+            .then(res => res.json())
+            .then(res => setData(res.find(perCourse => perCourse._id === perams.courseid)))
+    }, [perams.courseid])
 
-        
-        fetch(process.env.REACT_APP_ROOT_URL+'/courses')
-        .then(res=>res.json())
-        .then(res=>setData(res.find(perCourse=>perCourse._id===perams.courseid))) 
-
-
-    }, [perams.courseid]) 
+    console.log(data)
     return (
         <div >
             <Navbar></Navbar>
@@ -121,44 +124,53 @@ function SingleCourse() {
                 <div >
                     <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white p-4 shadow-lg">
                         <div className='flex w-full md:w-8/12 md:mx-6'>
-                            {/* <div className="w-full">
-                                <h3 className='my-4 font-bold text-gray-800 text-xl'>Course Schedule</h3>
-                                {(data?.date) && <div className='flex items-center mb-2'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-cyan-100 bg-cyan-50">
-                                        <AiFillSchedule className="h-4 w-4  text-cyan-800 " />
-                                    </div>
-                                    <div className='  w-full text-gray-600 '>
-                                        Date: <span>{data?.date.join(', ')}</span>
-                                    </div>
-                                </div>}
-                                {(data?.time) && <div className='flex items-center  mb-2 text-gray-600'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                                        <MdAccessTimeFilled className="h-4 w-4 text-orange-400" />
-                                    </div>
-                                    <div className='  w-full '>
-                                        Time: <span>{data?.time}</span>
-                                    </div>
-                                </div>}
-                                {(data?.duration) && <div className='flex items-center text-gray-600 mb-2'>
-                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-sky-100 bg-sky-50">
-                                        <BsFillCalendarCheckFill className="h-4 w-4  text-sky-800 " />
+                            <div className="w-full">
+                                <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Schedule</h3>
+                                {data?.date && <div className='flex items-center'>
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-red-100 bg-red-50">
+                                        <BsCalendarDateFill className="h-4 w-4 text-red-400" ></BsCalendarDateFill>
                                     </div>
                                     <div className='w-full '>
-                                        Duration: <span className=' '>{data?.duration}</span>
+                                        <h4 className='text-sm text-gray-600'>{data?.date}</h4>
                                     </div>
                                 </div>}
-                            </div> */}
+                                {data?.time && <div className='flex items-center my-2'>
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
+                                        <MdAccessTimeFilled className="h-4 w-4 text-blue-400" ></MdAccessTimeFilled>
+                                    </div>
+                                    <div className='w-full '>
+                                        <h4 className='text-sm text-gray-600'>{data?.time}</h4>
+                                    </div>
+                                </div>}
+                                {data?.duration && <div className='flex items-center my-2'>
+                                    <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
+                                        <GiDuration className="h-4 w-4 text-orange-400" ></GiDuration>
+                                    </div>
+                                    <div className='w-full '>
+                                        <h4 className='text-sm text-gray-600'>Total Duration: {data?.duration}</h4>
+                                    </div>
+                                </div>}
+                            </div>
+
+
+
                             <div className="w-full ">
-                                <h3 className='my-4 font-bold text-gray-800 text-xl'>After Completion</h3>
+                                <h3 className=' mb-3 font-bold text-gray-800 text-xl'>After Completion</h3>
                                 <div className='flex items-center'>
                                     <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-green-100 bg-green-50">
                                         <ImTrophy className="h-4 w-4 text-green-400" />
                                     </div>
-                                    <div className='w-full '>
+                                    <div className='w-full'>
                                         <h4 className='text-sm text-gray-600'> Certificate of completion</h4>
                                     </div>
                                 </div>
                             </div>
+
+
+
+
+
+
                         </div>
                         <div className="w-full md:w-4/12 mt-6 md:mt-0 ">
                             <MentorDetails data={data.mentor} />

@@ -1,11 +1,8 @@
-import React from 'react'
-import { useState } from 'react';
-
-function MentorDetails({ data }) {
-    console.log(data)
+import React from 'react' 
+function MentorDetails({ data }) { 
     return (
         <div>
-            <h2 className='font-bold text-gray-800 text-xl my-4'>
+            <h2 className='font-bold text-gray-800 text-xl '>
                 Instructors
             </h2>
             <div className=' flex justify-between items-center lg:mr-8 mb-2'>
