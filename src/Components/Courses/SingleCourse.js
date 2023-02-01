@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import Navbar from './../../globalComponents/Navbar';
@@ -9,41 +10,47 @@ import { GrUpdate } from 'react-icons/gr';
 import { ImTrophy } from 'react-icons/im';
 import { GiDuration } from 'react-icons/gi';
 import { TbCertificate } from 'react-icons/tb';
-import { FaPlay } from 'react-icons/fa';
 import { MdAccessTimeFilled } from 'react-icons/md';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import MentorDetails from './MentorDetails';
 import Loading from '../../globalComponents/Loading';
+import { FaPlay } from 'react-icons/fa';
 
 function SingleCourse() {
 
     const perams = useParams()
     const [data, setData] = useState({})
-
+    const videoTag = useRef(null)
     useEffect(() => {
         fetch(process.env.REACT_APP_ROOT_URL + '/courses')
             .then(res => res.json())
             .then(res => setData(res.find(perCourse => perCourse._id === perams.courseid)))
     }, [perams.courseid])
-
-    console.log(data)
     return (
         <div >
             <Navbar></Navbar>
-
             <div className="container py-16 bg-gray-100 mx-auto ">
 
-                {data ? <div class="">
+                {data ? <div>
 
                     <div className="relative bg-blueGray-50">
                         <div className="flex flex-wrap items-center ">
                             <div className="w-full md:w-5/12 px-12 md:px-4 mx-auto -mt-78">
                                 <div className="relative flex flex-col min-w-0 break-words  w-full mb-6 shadow-lg rounded-lg bg-gray-800">
-                                    <div class="max-h-[340px] relative flex items-center justify-center ">
-                                        <FaPlay className=' w-20 h-20 absolute opacity-30 hover:scale-125 hover:cursor-pointer hover:ease-in-out duration-200' />
+                                    {data.video ? <div className="max-h-[340px] relative flex items-center justify-center ">
+                                        <FaPlay onClick={e => {
+                                            (videoTag.current).setAttribute('controls', "")
+                                            videoTag.current.play();
+                                            e.target.style.display = 'none'
+                                        }} className='z-20 w-20 h-20 absolute opacity-30 hover:scale-125 hover:cursor-pointer hover:ease-in-out duration-200' />
+                                        <video height={'100%'} ref={videoTag} poster={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} className="w-full align-middle rounded-t-lg  " src={`${process.env.REACT_APP_ROOT_URL}/${data.video}`}></video>
+
+                                    </div> : <div className="max-h-[340px] relative flex items-center justify-center ">
                                         <img alt="..." src={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} height={'100%'} className="w-full align-middle rounded-t-lg" />
-                                    </div>
+                                    </div>}
+
+
 
                                     <blockquote className="relative p-8 mb-4">
                                         <div className='flex justify-between'>
@@ -128,8 +135,8 @@ function SingleCourse() {
                         </div>
                     </div>
 
-                    <div class="">
-                        <div  >
+                    <div className="">
+                        <div >
                             <div className=" my-6 py-16 w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white px-4 shadow-lg">
                                 <div className='flex w-full md:w-8/12 md:mx-6'>
                                     <div className="w-full">
@@ -180,10 +187,10 @@ function SingleCourse() {
                             <div className=" w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white px-4 py-16 shadow-lg">
                                 {data.coursecontent && <div className='w-full md:mx-6'>
                                     <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Countent</h3>
-                                    <small class="m-0 p-0">{(data.coursecontent).length} lectures • 35 total Class</small>
-                                    <div class="w-3/4 bg-slate-100 py-3 rounded">
-                                        <ul class="">
-                                            {data.coursecontent && (data.coursecontent).map((content, i) => <li key={i} class="text-neutral-600 list-disc ml-12 my-2">{content}</li>)
+                                    <small className="m-0 p-0">{(data.coursecontent).length} lectures • 35 total Class</small>
+                                    <div className="w-3/4 bg-slate-100 py-3 rounded">
+                                        <ul className="">
+                                            {data.coursecontent && (data.coursecontent).map((content, i) => <li key={i} className="text-neutral-600 list-disc ml-12 my-2">{content}</li>)
                                             }
                                         </ul>
                                     </div>
