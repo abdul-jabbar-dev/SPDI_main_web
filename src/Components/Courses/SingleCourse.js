@@ -20,7 +20,7 @@ import { FaPlay } from 'react-icons/fa';
 function SingleCourse() {
 
     const perams = useParams()
-    const [data, setData] = useState({})
+    const [data, setData] = useState({}) 
     const videoTag = useRef(null)
     useEffect(() => {
         fetch(process.env.REACT_APP_ROOT_URL + '/courses')
@@ -44,7 +44,7 @@ function SingleCourse() {
                                             videoTag.current.play();
                                             e.target.style.display = 'none'
                                         }} className='z-20 w-20 h-20 absolute opacity-30 hover:scale-125 hover:cursor-pointer hover:ease-in-out duration-200' />
-                                        <video height={'100%'} ref={videoTag} poster={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} className="w-full align-middle rounded-t-lg  " src={`${process.env.REACT_APP_ROOT_URL}/${data.video}`}></video>
+                                        <video  height={'100%'} ref={videoTag} poster={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} className="w-full align-middle rounded-t-lg  z-10" src={`${process.env.REACT_APP_ROOT_URL}/${data.video}`}></video>
 
                                     </div> : <div className="max-h-[340px] relative flex items-center justify-center ">
                                         <img alt="..." src={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} height={'100%'} className="w-full align-middle rounded-t-lg" />
