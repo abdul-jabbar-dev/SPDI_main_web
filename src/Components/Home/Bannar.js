@@ -3,7 +3,7 @@ import React from "react";
 const Bannar = ({ pageData }) => {
   return (
     <>
-      <div>
+      {pageData?<div>
         <section className='bg-white dark:bg-gray-900 z-20'>
           <div className='container px-6 py-10 mx-auto'>
             <div className='lg:flex lg:items-center'>
@@ -87,7 +87,7 @@ const Bannar = ({ pageData }) => {
             </div>
           </div>
         </section>
-      </div>
+      </div>:"Bannar has no data"}
     </>
   );
 };

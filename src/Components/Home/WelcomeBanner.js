@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const WelcomeBanner = ({ pageData }) => {
   return (
     <>
-      <div className='flex flex-col relative z-20 items-center justify-center text-white '>
+      {pageData?<div className='flex flex-col relative z-20 items-center justify-center text-white '>
         <div className='container  absolute z-30'>
           <h2 className='  md:text-5xl text-2xl  font-semibold md:text-left text-center'>
             {pageData.title}
@@ -26,7 +26,7 @@ const WelcomeBanner = ({ pageData }) => {
           className='w-full opacity-80'
           alt=''
         />
-      </div>
+      </div>:'no data found'}
     </>
   );
 };
