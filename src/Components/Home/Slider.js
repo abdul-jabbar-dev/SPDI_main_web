@@ -52,7 +52,7 @@ const Slider = () => {
                 </Swiper>
             </div>
 
-            <div className="UpdateNews relative  col-span-4 lg:col-span-1 shadow  overflow-x-hidden  rounded-lg bottom-1 ">
+            <div className="UpdateNews relative col-span-4 lg:col-span-1 shadow  overflow-x-hidden  rounded-lg bottom-1 ">
                 <UpdateNews></UpdateNews>
             </div>
         </div>

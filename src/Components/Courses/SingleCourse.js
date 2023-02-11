@@ -25,8 +25,10 @@ function SingleCourse() {
     useEffect(() => {
         fetch(process.env.REACT_APP_ROOT_URL + '/courses')
             .then(res => res.json())
+            // .then(res => setData( console.log(res )))
             .then(res => setData(res.find(perCourse => perCourse._id === perams.courseid)))
     }, [perams.courseid])
+   console.log(data.mentor)
     return (
         <div >
             <Navbar></Navbar>
@@ -138,7 +140,7 @@ function SingleCourse() {
                     <div className="">
                         <div >
                             <div className=" my-6 py-16 w-[98%] flex flex-col md:flex-row mx-auto rounded-xl bg-white px-4 shadow-lg">
-                                <div className='flex w-full md:w-8/12 md:mx-6'>
+                                <div className='flex w-full md:w-1/3 md:mx-6'>
                                     <div className="w-full">
                                         <h3 className=' mb-3 font-bold text-gray-800 text-xl'>Course Schedule</h3>
                                         {data?.date && <div className='flex items-center'>
@@ -165,8 +167,6 @@ function SingleCourse() {
                                                 <h4 className='text-sm text-gray-600'>Total Duration: {data?.duration}</h4>
                                             </div>
                                         </div>}
-                                    </div>
-                                    <div className="w-full ">
                                         <h3 className=' mb-3 font-bold text-gray-800 text-xl'>After Completion</h3>
                                         <div className='flex items-center'>
                                             <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full border border-green-100 bg-green-50">
@@ -178,7 +178,7 @@ function SingleCourse() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="w-full md:w-4/12 mt-6 md:mt-0 ">
+                                <div className="w-full md:w-2/3 mt-6 md:mt-0 ">
                                     <MentorDetails data={data.mentor} />
                                 </div>
                             </div>

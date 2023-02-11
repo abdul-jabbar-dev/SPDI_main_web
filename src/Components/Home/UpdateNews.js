@@ -5,8 +5,10 @@ import { HashLink } from 'react-router-hash-link';
 const UpdateNews = () => {
     const [allnewsData, setAllnewsData] = useState([]);
     useEffect(() => {
-        setAllnewsData(newsData)
-    }, []);
+        fetch(process.env.REACT_APP_ROOT_URL + '/news?sort=-createdAt')
+            .then(res => res.json())
+            .then(res => setAllnewsData(res.data))
+    }, [])
     const createId = (id, i) => 'cid' + (id)?.toLowerCase()?.replace(/ /g, '')?.slice(0, 3) + i
     return (
         <>

@@ -6,13 +6,13 @@ import Slider from "../Components/Home/Slider";
 import Footer from "../globalComponents/Footer";
 import Navbar from "../globalComponents/Navbar";
 import WelcomeBanner from "../Components/Home/WelcomeBanner";
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import Loading from "../globalComponents/Loading";
 
 const Home = () => {
   const [pageData, setPageData] = useState([]);
   const [isLoding, setIsLoding] = useState(!!pageData);
-  const [state, setState] = useState([]); 
+  const [state, setState] = useState([]);
   useEffect(() => {
     setIsLoding(true);
 
@@ -23,16 +23,16 @@ const Home = () => {
         setIsLoding(false);
       });
 
- fetch(process.env.REACT_APP_ROOT_URL + "/events")
+    fetch(process.env.REACT_APP_ROOT_URL + "/events")
       .then((res) => res.json())
       .then((res) => {
-        setState(res); 
+        setState(res);
       });
 
 
 
   }, []);
- 
+
   return (
     <>
       <div className='bg-gray-100'>
