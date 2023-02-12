@@ -7,6 +7,8 @@ import Loading from './../globalComponents/Loading';
 
 const AdminInfo = () => {
   const [members, setMembers] = useState([]);
+  const [president, setPresident] = useState({});
+
   const [isLoding, setIsLoding] = useState(true);
   useEffect(() => {
     try {
@@ -15,12 +17,14 @@ const AdminInfo = () => {
         .then((res) => res.json())
         .then((data) => {
           setMembers(data)
+          setPresident(data.find((data) => data?.role === "president"))
           setIsLoding(false)
         });
     } catch (error) {
       //console.log(error)
     }
   }, []);
+  console.log(`${process.env.REACT_APP_ROOT_URL}/${members[1]?.image}`)
   return (
     <>
       <Navbar></Navbar>
@@ -32,29 +36,28 @@ const AdminInfo = () => {
             <section className='bg-white '>
               <div className='px-6 mx-auto py-8'>
                 {
-                  <div className='flex flex-col sm:flex-row justify-around items-center'>
+                  president ? <div className='flex flex-col sm:flex-row justify-around items-center'>
                     <div className='lg:w-7/12 lg:ml-14 lg:p-0 p-7 order-2 sm:order-1'>
                       <h1 className='sm:text-5xl text-4xl text-gray-700 font-medium leading-tight mb-5 capitalize'>
-                        {members.find((data) => data?.role === "president")?.name}
+                        {president?.name}
                       </h1>
                       <p className='text-xl text-gray-500'>
                         {
-                          members.find((data) => data?.role === "president")
-                            ?.designation
+                          president?.designation
                         }
+                      </p>
+                      <p className='text-xl text-gray-700'>
+                        {president?.description}
                       </p>
                     </div>
                     <div className='lg:w-4/12 rounded-full scale-100   order-1 sm:order-2'>
                       <img
-                        className=' rounded-full ring-4 mx-auto ring-gray-300 object-cover'
-                        alt='sahil logo'
-                        width='250'
-                        height='250'
-                        src={`${process.env.REACT_APP_ROOT_URL}/${members.find((data) => data?.role === "president")?.image
-                          }`}
+                        className=' rounded-full w-60 h-60 ring-4 mx-auto ring-gray-300 object-cover'
+                        alt={president?.name}
+                        src={`${process.env.REACT_APP_ROOT_URL}/${president?.image}`}
                       />
                     </div>
-                  </div>
+                  </div> : <Loading></Loading>
                 }
               </div>
             </section>
