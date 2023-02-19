@@ -23,14 +23,6 @@ const Footer = () => {
           </div>
         </div>
         <div className='container px-5 pb-12 pt-7 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col'>
-          {/* <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-                        <a href='/'
-                            className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                            <img src={collageLogo} className="w-10 h-10 text-white   rounded-full" alt="" />
-                            <span className="ml-3 text-xl ">Skills and Professional Development Industry</span>
-                        </a>
-                        <p className="mt-2 text-sm text-gray-500">প্রযুক্তিই উন্নতি</p>
-                    </div> */}
           <div className='flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first'>
             <div className='lg:w-1/4 md:w-1/2 w-full px-4'>
               <h2 className='title-font font-medium text-gray-900 tracking-widest text-sm mb-3'>
@@ -153,7 +145,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href='/'
+                    href='https://mistte.edu.bd/'
                     className='text-sm text-gray-600 hover:text-gray-800'
                   >
                     <span>And </span>Model institute of science and technology
@@ -177,7 +169,8 @@ const Footer = () => {
               </a>
             </p>
             <span className='inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start'>
-              <a href='/' className='text-gray-500'>
+
+              <a target={'_blank'} href='https://www.facebook.com/abduljabbar1532' className='text-gray-500' rel="noreferrer">
                 <svg
                   fill='currentColor'
                   strokeLinecap='round'
@@ -189,6 +182,7 @@ const Footer = () => {
                   <path d='M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z'></path>
                 </svg>
               </a>
+
               <a href='/' className='ml-3 text-gray-500'>
                 <svg
                   fill='currentColor'
@@ -201,6 +195,7 @@ const Footer = () => {
                   <path d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'></path>
                 </svg>
               </a>
+
               <a href='/' className='ml-3 text-gray-500'>
                 <svg
                   fill='none'
@@ -215,7 +210,8 @@ const Footer = () => {
                   <path d='M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01'></path>
                 </svg>
               </a>
-              <a href='/' className='ml-3 text-gray-500'>
+
+              <a target={'_blank'} href='https://www.linkedin.com/in/abduljabbar15/' className='ml-3 text-gray-500' rel="noreferrer">
                 <svg
                   fill='currentColor'
                   stroke='currentColor'
@@ -232,6 +228,7 @@ const Footer = () => {
                   <circle cx='4' cy='4' r='2' stroke='none'></circle>
                 </svg>
               </a>
+              
             </span>
           </div>
         </div>

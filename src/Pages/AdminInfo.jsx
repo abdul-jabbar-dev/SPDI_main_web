@@ -9,16 +9,16 @@ const AdminInfo = () => {
   const [members, setMembers] = useState([]);
   const [president, setPresident] = useState({});
 
-  const [isLoding, setIsLoding] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     try {
-      setIsLoding(true)
+      setIsLoading(true)
       fetch(process.env.REACT_APP_ROOT_URL + "/users/")
         .then((res) => res.json())
         .then((data) => {
           setMembers(data)
           setPresident(data.find((data) => data?.role === "president"))
-          setIsLoding(false)
+          setIsLoading(false)
         });
     } catch (error) {
       //console.log(error)
@@ -29,7 +29,7 @@ const AdminInfo = () => {
     <>
       <Navbar></Navbar>
       {
-        isLoding ? <Loading></Loading> : <div>
+        isLoading ? <Loading></Loading> : <div>
 
           <div className='container mx-auto'>
             {/* president */}

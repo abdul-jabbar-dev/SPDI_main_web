@@ -11,16 +11,16 @@ import Loading from "../globalComponents/Loading";
 
 const Home = () => {
   const [pageData, setPageData] = useState([]);
-  const [isLoding, setIsLoding] = useState(!!pageData);
+  const [isLoading, setIsLoading] = useState(!!pageData);
   const [state, setState] = useState([]);
   useEffect(() => {
-    setIsLoding(true);
+    setIsLoading(true);
 
     fetch(process.env.REACT_APP_ROOT_URL + "/dynamicpage")
       .then((res) => res.json())
       .then((res) => {
         setPageData(res);
-        setIsLoding(false);
+        setIsLoading(false);
       });
 
     fetch(process.env.REACT_APP_ROOT_URL + "/events")
@@ -37,7 +37,7 @@ const Home = () => {
     <>
       <div className='bg-gray-100'>
         <Navbar></Navbar>
-        {!isLoding ? (
+        {!isLoading ? (
           <>
             <WelcomeBanner
               pageData={pageData.find((o) => o.role === "heading")}
@@ -45,7 +45,9 @@ const Home = () => {
             <ShortBanner
               pageData={pageData.find((o) => o.role === "topfeature")}
             ></ShortBanner>
-            <Slider></Slider>
+            <Slider
+              pageData={pageData.find((o) => o.role === "slider")}
+            ></Slider>
             <br />
             <br />
             <Bannar

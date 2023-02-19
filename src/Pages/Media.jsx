@@ -8,21 +8,21 @@ import Loading from './../globalComponents/Loading';
 
 function Media() {
   const [allEvent, setAllEvent] = useState([])
-  const [isLoding, setIsLoding] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    setIsLoding(true)
+    setIsLoading(true)
     fetch(`${process.env.REACT_APP_ROOT_URL}/events`)
       .then(res => res.json())
       .then(res => {
         setAllEvent(res)
-        setIsLoding(false)
+        setIsLoading(false)
       })
   }, [])
   return (
     <>
       <Navbar></Navbar>
       {
-        isLoding ? <Loading></Loading> : <div className='bg-gray-100'>
+        isLoading ? <Loading></Loading> : <div className='bg-gray-100'>
           <PhotosMedia mediaApi={allEvent}></PhotosMedia>
           <AllPhotos mediaApi={allEvent}></AllPhotos>
         </div>
