@@ -12,7 +12,7 @@ import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu";
 
 
 const navigationLinks = [
-    { menus: 'Student Profile', icon: <CgProfile className="h-5 w-5" />, to: `/studentdash` },
+    { menus: 'Student Profile', icon: <CgProfile className="h-5 w-5" />, to: `/my_dashboard` },
     { menus: 'Attendance Report', icon: <HiOutlineDocumentReport className="h-5 w-5" />, to: 'attendancereport' },
     // { menus: 'Invoice', icon: <RiBillLine className="h-5 w-5" />, to: 'invoice' },
     { menus: 'Routine', icon: <SiGoogleclassroom className="h-5 w-5" />, to: 'classrouting' },
@@ -24,7 +24,7 @@ const navigationLinks = [
 
 
 const StuDashNav = () => {
-    const path = Boolean(useMatch('/studentdash'))
+    const path = Boolean(useMatch('/my_dashboard'))
     const [open, setOpen] = useState(false)
     return (
         <div>

@@ -37,14 +37,14 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/whyspdi"}>
+                  <Link to={"/why_spdi"}>
                     <span className='text-gray-600 hover:text-gray-800'>
                       About Us
                     </span>
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/contactwithus"}>
+                  <Link to={"/contact"}>
                     <span className='text-gray-600 hover:text-gray-800'>
                       Contact Us
                     </span>

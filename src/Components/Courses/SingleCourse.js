@@ -26,8 +26,8 @@ function SingleCourse() {
         fetch(process.env.REACT_APP_ROOT_URL + '/courses')
             .then(res => res.json())
             // .then(res => setData( console.log(res )))
-            .then(res => setData(res.find(perCourse => perCourse._id === perams.courseid)))
-    }, [perams.courseid])
+            .then(res => setData(res.find(perCourse => perCourse._id === perams.course_id)))
+    }, [perams.course_id])
    console.log(data.mentor)
     return (
         <div >

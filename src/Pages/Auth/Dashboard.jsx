@@ -4,7 +4,7 @@ import StuDashNav from '../../Components/Students/StuDashNav';
 import Footer from '../../globalComponents/Footer';
 import Navbar from '../../globalComponents/Navbar';
 
-const StudentsDashboard = () => {
+const Dashboard = () => {
     return (
         <div>
 
@@ -26,4 +26,4 @@ const StudentsDashboard = () => {
     );
 };
 
-export default StudentsDashboard;
+export default Dashboard;

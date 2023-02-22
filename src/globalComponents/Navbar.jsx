@@ -20,15 +20,15 @@ const navigation = [
         //     { name: 'DTE', to: '/', icon: <VscRadioTower /> },
         // ]
     },
-    { name: 'CONTACT', to: '/contactwithus', current: false },
+    { name: 'CONTACT', to: '/contact', current: false },
     { name: 'NEWS', to: '/news', current: false },
-    { name: 'WHY SPDI', to: '/whyspdi', current: false },
+    { name: 'WHY SPDI', to: '/why_spdi', current: false },
     { name: 'EVENTS', to: '/events', current: false },
-    { name: 'ADMIN INFO', to: '/admininfo', current: false },
+    { name: 'ADMIN INFO', to: '/admin_info', current: false },
     // { name: 'LOGIN', to: '/login', current: false },
 ]
 const userNavigation = [
-    { name: 'Your Profile', to: '/studentdash' },
+    { name: 'Your Profile', to: '/my_dashboard' },
     { name: 'Sign out', to: '/' },
 ]
 
