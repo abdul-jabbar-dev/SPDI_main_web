@@ -20,7 +20,7 @@ import { FaPlay } from 'react-icons/fa';
 function SingleCourse() {
 
     const perams = useParams()
-    const [data, setData] = useState({}) 
+    const [data, setData] = useState({})
     const videoTag = useRef(null)
     useEffect(() => {
         fetch(process.env.REACT_APP_ROOT_URL + '/courses')
@@ -28,7 +28,7 @@ function SingleCourse() {
             // .then(res => setData( console.log(res )))
             .then(res => setData(res.find(perCourse => perCourse._id === perams.course_id)))
     }, [perams.course_id])
-   console.log(data.mentor)
+    console.log(data.mentor)
     return (
         <div >
             <Navbar></Navbar>
@@ -46,7 +46,7 @@ function SingleCourse() {
                                             videoTag.current.play();
                                             e.target.style.display = 'none'
                                         }} className='z-20 w-20 h-20 absolute opacity-30 hover:scale-125 hover:cursor-pointer hover:ease-in-out duration-200' />
-                                        <video  height={'100%'} ref={videoTag} poster={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} className="w-full align-middle rounded-t-lg  z-10" src={`${process.env.REACT_APP_ROOT_URL}/${data.video}`}></video>
+                                        <video height={'100%'} ref={videoTag} poster={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} className="w-full align-middle rounded-t-lg  z-10" src={`${process.env.REACT_APP_ROOT_URL}/${data.video}`}></video>
 
                                     </div> : <div className="max-h-[340px] relative flex items-center justify-center ">
                                         <img alt="..." src={`${process.env.REACT_APP_ROOT_URL}/${data.img}`} height={'100%'} className="w-full align-middle rounded-t-lg" />
@@ -66,7 +66,8 @@ function SingleCourse() {
                                         <div className='flex'>
                                             {/* {Array((data?.rating)*1).fill(1).map((st, si) => <GoStar className='text-orange-500' key={si}></GoStar>)} */}
                                         </div>
-                                        <p className="text-md font-light mt-2 text-white">
+                                        <p className="text-md font-light mt-2 text-white first-line:uppercase first-letter:text-7xl first-letter:font-bold  
+  first-letter:mr-3 first-letter:-mt-2 first-letter:float-left">
                                             {data?.description}
                                         </p>
                                     </blockquote>

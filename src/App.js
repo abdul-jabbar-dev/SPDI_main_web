@@ -24,7 +24,7 @@ import Admission from './Pages/Admission';
 import SingleCourse from './Components/Courses/SingleCourse';
 import Media from './Pages/Media';
 import Protected from './Pages/Authorization/Protected';
-import AuthRole from './Pages/Authorization/AuthRole';
+import HomePage from './Components/Admin/HomePage';
 
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
     name: 'abdul jabbar',
     role: 'student'
   }
- 
+
   return (
     <div className='bg-gray-100'>
       <BrowserRouter>
@@ -48,18 +48,22 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/news" element={<News />} />
 
-          <Route path="/my_dashboard" element={<Protected isSignedIn={USERS}> <AuthRole user={{ role: 'admin' }} role={['admin']}><Dashboard /></AuthRole></Protected>} > 
+          <Route path="/my_dashboard" element={
+            <Protected isSignedIn={USERS}>
+              <Dashboard />
+            </Protected>} >
 
             <Route path="" element={<StuDashHome />} />
-            <Route path="invoice" element={<StuInvoiceList />} />
+            <Route path="landing_page" element={<HomePage />} />
+
+            {/* <Route path="invoice" element={<StuInvoiceList />} />
             <Route path="invoice/:invoiceId" element={<InvoiceDetails />} />
             <Route path="classrouting" element={<StuClassRouting />} />
             <Route path="classshedule" element={<StuClassShedule />} />
             <Route path="attendancereport" element={<StuAttendanceReport />} />
             <Route path="onlineclass" element={<StuOnlineClass />} />
             <Route path="certificates" element={<StuCertificates />} />
-            <Route path="studenPayment" element={<StuOnlinePayment />} />
-            
+            <Route path="studenPayment" element={<StuOnlinePayment />} /> */}
           </Route>
 
           <Route path='course/:course_id' element={<SingleCourse />} />

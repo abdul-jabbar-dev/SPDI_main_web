@@ -29,8 +29,6 @@ const Home = () => {
         setState(res);
       });
 
-
-
   }, []); 
   return (
     <>

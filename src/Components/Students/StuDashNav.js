@@ -5,21 +5,26 @@ import { HiOutlineCurrencyDollar } from "@react-icons/all-files/hi/HiOutlineCurr
 import { CgMenuGridO } from "@react-icons/all-files/cg/CgMenuGridO";
 import { FaGraduationCap } from "@react-icons/all-files/fa/FaGraduationCap";
 import { HiOutlineDocumentReport } from "@react-icons/all-files/hi/HiOutlineDocumentReport";
-import { MdLiveTv } from "@react-icons/all-files/md/MdLiveTv";
+import { MdLiveTv } from "@react-icons/all-files/md/MdLiveTv"; 
 import { CgProfile } from "@react-icons/all-files/cg/CgProfile";
 import { GrClose } from "@react-icons/all-files/gr/GrClose";
-import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu";
+import { GiHamburgerMenu } from "@react-icons/all-files/gi/GiHamburgerMenu"; 
+import { MdContactPage } from 'react-icons/md';
 
-
+// const navigationLinks = [
+//     { menus: 'Student Profile', icon: <CgProfile className="h-5 w-5" />, to: `/my_dashboard` },
+//     { menus: 'Attendance Report', icon: <HiOutlineDocumentReport className="h-5 w-5" />, to: 'attendancereport' },
+//     // { menus: 'Invoice', icon: <RiBillLine className="h-5 w-5" />, to: 'invoice' },
+//     { menus: 'Routine', icon: <SiGoogleclassroom className="h-5 w-5" />, to: 'classrouting' },
+//     { menus: 'Class shedule', icon: <CgMenuGridO className="h-5 w-5" />, to: 'classshedule' },
+//     { menus: 'Online Class', icon: <MdLiveTv className="h-5 w-5" />, to: 'onlineclass' },
+//     { menus: 'Certificates', icon: <FaGraduationCap className="h-5 w-5" />, to: 'certificates' },
+//     { menus: 'Online Payment', icon: <HiOutlineCurrencyDollar className="h-5 w-5" />, to: 'studenPayment' },
+// ]
 const navigationLinks = [
     { menus: 'Student Profile', icon: <CgProfile className="h-5 w-5" />, to: `/my_dashboard` },
-    { menus: 'Attendance Report', icon: <HiOutlineDocumentReport className="h-5 w-5" />, to: 'attendancereport' },
-    // { menus: 'Invoice', icon: <RiBillLine className="h-5 w-5" />, to: 'invoice' },
-    { menus: 'Routine', icon: <SiGoogleclassroom className="h-5 w-5" />, to: 'classrouting' },
-    { menus: 'Class shedule', icon: <CgMenuGridO className="h-5 w-5" />, to: 'classshedule' },
-    { menus: 'Online Class', icon: <MdLiveTv className="h-5 w-5" />, to: 'onlineclass' },
-    { menus: 'Certificates', icon: <FaGraduationCap className="h-5 w-5" />, to: 'certificates' },
-    { menus: 'Online Payment', icon: <HiOutlineCurrencyDollar className="h-5 w-5" />, to: 'studenPayment' },
+    { menus: 'Landing Page', icon: <MdContactPage className="h-5 w-5" />, to: `landing_page` },
+    
 ]
 
 

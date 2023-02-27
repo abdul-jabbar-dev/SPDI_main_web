@@ -4,13 +4,13 @@ import StuDashNav from '../../Components/Students/StuDashNav';
 import Footer from '../../globalComponents/Footer';
 import Navbar from '../../globalComponents/Navbar';
 
-const Dashboard = () => {
+const Dashboard = ( ) => { 
     return (
         <div>
 
             <Navbar></Navbar>
 
-            <div className="flex flex-col md:flex-row bg-gray-100  ">
+            <div className="flex flex-col md:flex-row bg-gray-100">
 
                 <div className="sm:flex-none">
                     <StuDashNav></StuDashNav>
