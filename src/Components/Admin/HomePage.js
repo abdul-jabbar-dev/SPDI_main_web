@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Loading from '../../globalComponents/Loading';
 import { RxUpdate } from 'react-icons/rx'
+import ImgSlider from './LandingPage.edit/ImgSlider';
+import { MdAddCircleOutline } from 'react-icons/md';
 const HomePage = () => {
 
     const [data, setData] = useState([])
@@ -21,8 +23,8 @@ const HomePage = () => {
             sec_descreption: '',
             third_title: '',
             third_descreption: '',
-        }
-    )
+        })
+    const [imgSlider, setImgSlider] = useState([])
     useEffect(() => {
         // fetch(process.env.REACT_APP_ROOT_URL + "/dynamicpage")
         //     .then((res) => res.json())
@@ -52,6 +54,7 @@ const HomePage = () => {
                     third_descreption: res.find(obj => obj.role === 'topfeature').third_descreption,
 
                 })
+                setImgSlider(res?.find(obj => obj.role === 'slider')?.media)
             });
     }, []);
 
@@ -67,20 +70,26 @@ const HomePage = () => {
         }
         const fec = await fetch(`${process.env.REACT_APP_ROOT_URL}/dynamicpage/${path}`, options)
         const response = await fec.json()
+
         return response
     }
 
     const headingSubmitEvent = (e) => {
         e.preventDefault()
-        const confrm = window.confirm("Are you sure? ")
+        const confrm = window.confirm("Are You ready for update:  ")
         if (confrm) {
+
             if (e.target.id === 'headline_form') {
                 postConfig('headline_form', heading, 'heading').then(res => console.log(res))
 
             } else if (e.target.id === 'topfeature_form') {
-                postConfig('headline_form', topFeature, 'topfeature').then(res => console.log(res))
+                postConfig('topfeature_form', topFeature, 'topfeature').then(res => console.log(res))
 
+            } else if (e.target.id === 'addSlider') {
+                postConfig('sliderForm', e.target.files, 'slider').then(res => {console.log(res)}).finally(res=>window.location.reload())
+                
             }
+
         }
     }
     // const topFeatureSubmitEvent = (e) => {
@@ -105,11 +114,11 @@ const HomePage = () => {
     //     //         .then(res => console.info(res));
     //     // }
     // }
-
     return (
         <div>
             <div className=" ">
                 <div className=" px-6">
+                    {/* Top header */}
                     {
                         heading ? <form onSubmit={e => headingSubmitEvent(e)} className="my-10 " id="headline_form">
                             <h3 className="text-gray-700">Heading</h3>
@@ -134,7 +143,7 @@ const HomePage = () => {
                                                 setHeading(pre => { return { ...pre, headingBackground: e.target.files[0] } })
                                                 setBackground(window.URL.createObjectURL(e.target.files[0]))
                                             }}
-                                                id="headingBackground" name='' type="file" className="hidden" />
+                                                id="headingBackground" name='' type="file" accept="image/png, image/jpeg, image/jpg" className="hidden" />
                                         </label>
                                     </div>
 
@@ -162,6 +171,7 @@ const HomePage = () => {
                 </div>
 
                 <div className=" px-6">
+                    {/* Top Features */}
                     {
                         topFeature ? <form onSubmit={e => headingSubmitEvent(e)} id="topfeature_form">
                             <h3 className="text-gray-700">Top Feature </h3>
@@ -215,6 +225,26 @@ const HomePage = () => {
                     }
                 </div>
 
+                <div className='px-6'>
+                    {/* Image slider */}
+
+                    <div className="w-full my-6 p-4 bg-gray border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        <h3 className="text-gray-700 mb-5">Slider</h3>
+                        <div className="flex flex-wrap gap-6 " >
+                            {
+                                imgSlider.map((img, i) => <ImgSlider img={img} imgSlider={imgSlider} key={i}></ImgSlider>)
+                            }
+                            <div className='w-40 h-32 rounded relative  bg-gray-200 flex justify-center'>
+                                <form id='sliderForm' className='rounded-full cursor-pointer hover:scale-125 transition-all bg-slate-300 mx-auto my-auto w-[40%] h-[50%] '>
+                                    <label htmlFor='addSlider' className=' w-full h-full flex justify-center'>
+                                        <MdAddCircleOutline className='w-1/2 h-1/2 my-auto' />
+                                        <input id='addSlider' accept="image/png, image/jpeg, image/jpg" type="file" className='hidden' onChange={e => headingSubmitEvent(e)} />
+                                    </label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div >
 
         </div >
